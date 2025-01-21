@@ -7,9 +7,13 @@
     return document.getElementById(x);
   }
 
+  function set_display(element_id, value_function) {
+    $(element_id).value = value_function(proc).toString(16);
+  }
+
   function single_step() {
     simulator.step(proc);
-    $('instruction_register').value = simulator.readIR(proc).toString(16);
+    set_display('instruction_register', simulator.readIR);
   }
 
   async function init() {
