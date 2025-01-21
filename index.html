@@ -1,0 +1,37 @@
+<!doctype html>
+<script type="module">
+  var proc;
+  var simulator;
+  var $ = document.getElementById;
+
+  function single_step() {
+    simulator.step(proc);
+    document.getElementById('instruction_register').value = simulator.readIR(proc).toString(16);
+  }
+
+  async function init() {
+    const { instance } = await WebAssembly.instantiateStreaming(
+      fetch("./6502.wasm")
+    );
+    simulator = instance.exports;
+    proc = simulator.initAndResetChip();
+    console.log(proc);
+    document.getElementById("step_button").addEventListener(
+        "click", single_step);
+  }
+  init();
+</script>
+
+<style type="text/css">
+  #view > input {
+    position: absolute;
+    font-size: 45px;
+  }
+  #instruction_register { left: 166px; top: 788px; width: 120px; }
+</style>
+
+<section id=view>
+  <input type=button value=step id=step_button>
+  <input type=text id=instruction_register>
+  <img src="hanson.jpg">
+</section>
