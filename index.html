@@ -2,11 +2,14 @@
 <script type="module">
   var proc;
   var simulator;
-  var $ = document.getElementById;
+
+  function $(x) {
+    return document.getElementById(x);
+  }
 
   function single_step() {
     simulator.step(proc);
-    document.getElementById('instruction_register').value = simulator.readIR(proc).toString(16);
+    $('instruction_register').value = simulator.readIR(proc).toString(16);
   }
 
   async function init() {
@@ -16,7 +19,7 @@
     simulator = instance.exports;
     proc = simulator.initAndResetChip();
     console.log(proc);
-    document.getElementById("step_button").addEventListener(
+    $("step_button").addEventListener(
         "click", single_step);
   }
   init();
