@@ -130,7 +130,7 @@ readIDL(void *state)
 uint8_t
 readNode(void *state, int n)
 {
-    return readNodes(state, 1, (nodenum_t[]){ n });
+    return isNodeHigh(state, n);
 }
 
 uint8_t
