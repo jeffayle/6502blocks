@@ -127,6 +127,18 @@ readIDL(void *state)
     return ~readNodes(state, 8, (nodenum_t[]){ pd0,pd1,pd2,pd3,pd4,pd5,pd6,pd7});
 }
 
+uint8_t
+readNode(void *state, int n)
+{
+    return readNodes(state, 1, (nodenum_t[]){ n });
+}
+
+uint8_t
+readNode8(void *state, int n0, int n1, int n2, int n3, int n4, int n5, int n6, int n7)
+{
+    return readNodes(state, 8, (nodenum_t[]){ n0,n1,n2,n3,n4,n5,n6,n7 });
+}
+
 /************************************************************
  *
  * Address Bus and Data Bus Interface

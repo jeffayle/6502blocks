@@ -1,24 +1,36 @@
 <!doctype html>
 <script type="module">
+  // [x, y, invert, [nodes]]
+  const register_list_data = [
+    // data bus
+    [731, 206, false, [1005,82,945,650,1393,175,1591,1349]],
+    // instruction register
+    [166, 788, true, [194,702,1182,1125,26,1394,895,1320]],
+    // address bus low
+    [1837, 1560, false, [268,451,1340,211,435,736,887,1493]],
+    // address bus high
+    [1837, 826, false, [230,148,1443,399,1237,349,672,195]],
+    // predecode register
+    [537, 215, true, [758,361,955,894,369,829,1669,1690]]
+  ];
+
   var proc;
   var simulator;
+  var register_list = [];
 
   function $(x) {
     return document.getElementById(x);
   }
 
-  function set_display(element_id, value_function) {
-    $(element_id).value = value_function(proc).toString(16);
-  }
-
   function single_step() {
     simulator.step(proc);
-    set_display('instruction_register', simulator.readIR);
-    set_display('data_bus', simulator.readDataBus);
-    set_display('address_bus_lo', simulator.readABL);
-    set_display('address_bus_hi', simulator.readABH);
-    set_display('data_latch', simulator.readIDL);
-    set_display('predecode_register', simulator.readIDL);
+    for (let i=0; i<register_list_data.length; i++) {
+      let value = simulator.readNode8.apply(null,
+          [proc].concat(register_list_data[i][3]))
+      if (register_list_data[i][2])
+        value ^= 255;
+      register_list[i].value = value.toString(16);
+    }
   }
 
   async function init() {
@@ -27,11 +39,24 @@
     );
     simulator = instance.exports;
     proc = simulator.initAndResetChip();
+    // create dom elements for output
+    var parent_elem = $("view");
+    for (let i=0; i<register_list_data.length; i++) {
+      let new_elem = document.createElement("input");
+      new_elem.type = "text";
+      new_elem.value = "";
+      new_elem.readOnly = true;
+      new_elem.style.left = register_list_data[i][0] + "px";
+      new_elem.style.top = register_list_data[i][1] + "px";
+      parent_elem.appendChild(new_elem);
+      register_list.push(new_elem);
+    }
     console.log(proc);
     $("step_button").addEventListener(
         "click", single_step);
   }
   init();
+  
 </script>
 
 <style type="text/css">
@@ -42,21 +67,9 @@
     text-align: center;
     background-color: #ff9;
   }
-  #instruction_register { left: 166px; top: 788px; }
-  #data_bus { left: 731px; top: 206px; }
-  #address_bus_lo { left: 1837px; top: 1560px; }
-  #address_bus_hi { left: 1837px; top: 826px; }
-  #data_latch { left: 971px; top: 185px; }
-  #predecode_register { left: 537px; top: 215px; }
 </style>
 
 <section id=view>
   <input type=button value=step id=step_button>
-  <input type=text id=data_bus>
-  <input type=text id=address_bus_lo>
-  <input type=text id=address_bus_hi>
-  <input type=text id=instruction_register>
-  <input type=text id=data_latch>
-  <input type=text id=predecode_register>
   <img src="hanson.jpg">
 </section>
