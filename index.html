@@ -14,6 +14,11 @@
   function single_step() {
     simulator.step(proc);
     set_display('instruction_register', simulator.readIR);
+    set_display('data_bus', simulator.readDataBus);
+    set_display('address_bus_lo', simulator.readABL);
+    set_display('address_bus_hi', simulator.readABH);
+    set_display('data_latch', simulator.readIDL);
+    set_display('predecode_register', simulator.readIDL);
   }
 
   async function init() {
@@ -33,12 +38,25 @@
   #view > input {
     position: absolute;
     font-size: 45px;
+    width: 90px;
+    text-align: center;
+    background-color: #ff9;
   }
-  #instruction_register { left: 166px; top: 788px; width: 120px; }
+  #instruction_register { left: 166px; top: 788px; }
+  #data_bus { left: 731px; top: 206px; }
+  #address_bus_lo { left: 1837px; top: 1560px; }
+  #address_bus_hi { left: 1837px; top: 826px; }
+  #data_latch { left: 971px; top: 185px; }
+  #predecode_register { left: 537px; top: 215px; }
 </style>
 
 <section id=view>
   <input type=button value=step id=step_button>
+  <input type=text id=data_bus>
+  <input type=text id=address_bus_lo>
+  <input type=text id=address_bus_hi>
   <input type=text id=instruction_register>
+  <input type=text id=data_latch>
+  <input type=text id=predecode_register>
   <img src="hanson.jpg">
 </section>

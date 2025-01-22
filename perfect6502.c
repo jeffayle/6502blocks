@@ -38,6 +38,18 @@ readAddressBus(void *state)
 }
 
 uint8_t
+readABL(void *state)
+{
+    return readNodes(state, 8, (nodenum_t[]){ab0,ab1,ab2,ab3,ab4,ab5,ab6,ab7});
+}
+
+uint8_t
+readABH(void *state)
+{
+    return readNodes(state, 8, (nodenum_t[]){ab8,ab9,ab10,ab11,ab12,ab13,ab14,ab15});
+}
+
+uint8_t
 readDataBus(void *state)
 {
 	return readNodes(state, 8, (nodenum_t[]){ db0, db1, db2, db3, db4, db5, db6, db7 });
@@ -107,6 +119,12 @@ uint16_t
 readPC(void *state)
 {
 	return (readPCH(state) << 8) | readPCL(state);
+}
+
+uint8_t
+readIDL(void *state)
+{
+    return ~readNodes(state, 8, (nodenum_t[]){ pd0,pd1,pd2,pd3,pd4,pd5,pd6,pd7});
 }
 
 /************************************************************
