@@ -81,10 +81,11 @@
     ["db_p", 781, BIT],
     ["write", 1156, BIT_INV],
     ["RW", 1156, BIT],
+    ["pclc", 1704, BIT],
     /* registers */
     ["ir", [194,702,1182,1125,26,1394,895,1320], BYTE_INV],
     ["DB", [1005,82,945,650,1393,175,1591,1349], BYTE_],
-    ["pd", [758,361,955,894,369,829,1669,1690], BYTE_],
+    ["pd", [758,361,955,894,369,829,1669,1690], BYTE_INV],
     ["dor", [222,527,1288,823,873,1266,1418,158], BYTE_],
     //"pcls",
     ["pcl", [1139,1022,655,1359,900,622,377,1611], BYTE_],
@@ -123,6 +124,8 @@
     function set_register(cls, value) {
       let matches = $("view").getElementsByClassName(cls);
       value = value.toString(16);
+      if (value.length < 2)
+        value = "0" + value;
       for (let i=0; i<matches.length; i++)
         matches[i].value = value;
     }
