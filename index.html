@@ -13,15 +13,20 @@
     // predecode register
     [537, 215, true, [758,361,955,894,369,829,1669,1690]]
   ];
-  const overlay_list_data = [
-    ["clk1", 1163],
-    ["clk2", 421]
+  const signal_list = [
+    ["clk1", 1163, false],
+    ["clk2", 421, false],
+    ["t0", 1536, true],
+    ["t1", 156, true],
+    ["t2", 971, true],
+    ["t3", 1567, true],
+    ["t4", 690, true],
+    ["t5", 909, true]
   ];
 
   var proc;
+  var svg_doc
   var simulator;
-  var register_list = [];
-  var overlay_list = [];
 
   function $(x) {
     return document.getElementById(x);
@@ -29,84 +34,51 @@
 
   function single_step() {
     simulator.step(proc);
-    for (let i=0; i<register_list_data.length; i++) {
-      let value = simulator.readNode8.apply(null,
-          [proc].concat(register_list_data[i][3]))
-      if (register_list_data[i][2])
-        value ^= 255;
-      register_list[i].value = value.toString(16);
+    function set_colour(cls, col) {
+      let matches = svg_doc.getElementsByClassName(cls);
+      for (let i=0; i<matches.length; i++) {
+        matches[i].style.color = col;
+        matches[i].style.solidColor = col;
+        matches[i].style.fill = col;
+        matches[i].stroke = col;
+      }
     }
-    for (let i=0; i<overlay_list_data.length; i++) {
-      console.log(overlay_list_data[i][1]);
-      let value = simulator.readNode(proc, overlay_list_data[i][1]);
-      console.log(value);
-      overlay_list[i].style.display = value ? 'block' : 'none';
+    for (let i=0; i<signal_list.length; i++) {
+      let value = simulator.readNode(proc, signal_list[i][1]);
+      if (signal_list[i][2])
+        value = ! value;
+      set_colour(signal_list[i][0], value?'red':'grey');
     }
   }
 
+  /* load wasm */
   async function init() {
     const { instance } = await WebAssembly.instantiateStreaming(
       fetch("./6502.wasm")
     );
     simulator = instance.exports;
     proc = simulator.initAndResetChip();
-    // create dom elements for output
-    // <input>s for registers
-    var parent_elem = $("view");
-    for (let i=0; i<register_list_data.length; i++) {
-      let new_elem = document.createElement("input");
-      new_elem.type = "text";
-      new_elem.value = "";
-      new_elem.readOnly = true;
-      new_elem.style.left = register_list_data[i][0] + "px";
-      new_elem.style.top = register_list_data[i][1] + "px";
-      parent_elem.appendChild(new_elem);
-      register_list.push(new_elem);
-    }
-    // <img>s for overlays
-    parent_elem = $("overlays");
-    for (let i=0; i<overlay_list_data.length; i++) {
-      let new_elem = document.createElement("img");
-      new_elem.src = "overlay/"+overlay_list_data[i][0] + ".png";
-      new_elem.style.display = 'none';
-      parent_elem.appendChild(new_elem);
-      overlay_list.push(new_elem);
-    }
     console.log(proc);
     $("step_button").addEventListener(
         "click", single_step);
   }
   init();
+
+  window.addEventListener("load", function() {
+    svg_doc = $("diagram").contentDocument;
+  });
   
 </script>
 
 <style type="text/css">
-  #view {
-    position: relative;
-  }
-  #view > input {
-    position: absolute;
-    font-size: 45px;
-    width: 90px;
-    text-align: center;
-    background-color: #ff9;
-  }
-  #view > input[type=text]:hover {
-    opacity: 0.1;
-  }
-  #view > input[type=button] {
-    z-index: 10;
-  }
-  #overlays > img {
-    position: absolute;
-    top: 0;
-    left: 0;
+  input[type=button] {
+    position: fixed;
+    top: 0; left: 0;
   }
 </style>
 
 <section id=view>
   <input type=button value=step id=step_button>
-  <img src="hanson.jpg">
-  <section id=overlays>
-  </section>
+  <object id="diagram" data="6502block.svg" type="image/svg+xml">
+  </object>
 </section>
