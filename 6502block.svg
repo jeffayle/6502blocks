@@ -14,6 +14,7 @@
    inkscape:export-ydpi="300"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -273,7 +274,7 @@
        inkscape:collect="always">
       <path
          inkscape:connector-curvature="0"
-         transform="scale(-0.6,-0.6)"
+         transform="scale(-0.6)"
          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
          id="path22425" />
@@ -2536,6 +2537,881 @@
          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
          transform="scale(-0.6,-0.6)" />
     </marker>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB;"
+       id="filter60029"
+       x="-0.02830615"
+       y="-0.040849673"
+       width="1.0566123"
+       height="1.0816993">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021" />
+      <feMerge
+         result="result3"
+         id="feMerge60027">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-3"
+       x="-0.02830615"
+       y="-0.040849673"
+       width="1.0566123"
+       height="1.0816993">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-0" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-7" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-8" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-6">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-8" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-8" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-1"
+       x="-0.02830615"
+       y="-0.040849673"
+       width="1.0566123"
+       height="1.0816993">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-4" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-9" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-2" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-0">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-6" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-89" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-6"
+       x="-0.02830615"
+       y="-0.040849673"
+       width="1.0566123"
+       height="1.0816993">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-49" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-5" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-0" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-4">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-87" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-1" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-7"
+       x="-0.02830615"
+       y="-0.040849673"
+       width="1.0566123"
+       height="1.0816993">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-2" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-2" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-6" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-1">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-0" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-6" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-9"
+       x="-0.02830615"
+       y="-0.040849673"
+       width="1.0566123"
+       height="1.0816993">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-490" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-91" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-7" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-7">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-1" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-15" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-76"
+       x="-0.02830615"
+       y="-0.040849673"
+       width="1.0566123"
+       height="1.0816993">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-7" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-3" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-65" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-63">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-9" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-4" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-2"
+       x="-0.02830615"
+       y="-0.040849673"
+       width="1.0566123"
+       height="1.0816993">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-9" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-39" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-08" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-8">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-5" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-0" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5"
+       x="-0.02830615"
+       y="-0.040849673"
+       width="1.0566123"
+       height="1.0816993">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-4"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-4" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-4" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-4" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-7">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-6" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-3" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-5"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-9" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-6" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-2" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-1">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-7" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-8" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-1"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-8" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-5" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-9" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-75">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-3" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-88" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-8"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-96" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-43" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-3" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-3">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-8" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-6" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-88"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-89" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-7" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-7" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-6">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-4" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-30" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-2"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-5" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-40" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-5" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-9">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-46" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-9" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-47"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-7" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-54" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-8" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-12">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-89" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-36" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-21"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-0" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-51" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-1" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-0">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-85" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-0" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-25"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-86" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-2" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-84" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-72">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-40" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-62" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-81"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-3" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-1" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-10" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-34">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-0" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-39" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-9"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-33" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-8" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-0" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-5">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-66" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-4" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-9-6"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-33-7" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-8-5" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-0-6" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-5-9">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-66-8" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-4-7" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-9-2"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-33-9" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-8-9" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-0-60" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-5-2">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-66-7" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-4-6" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-9-21"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-33-5" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-8-99" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-0-1" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-5-4">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-66-9" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-4-1" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-9-5"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-33-8" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-8-7" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-0-0" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-5-48">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-66-0" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-4-4" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Fill Background"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a colorizable opaque background"
+       style="color-interpolation-filters:sRGB"
+       id="filter60029-5-9-1"
+       x="-0.037741533"
+       y="-0.054466231"
+       width="1.0754831"
+       height="1.1089325">
+      <feFlood
+         result="result1"
+         flood-color="rgb(248,228,92)"
+         flood-opacity="1"
+         id="feFlood60017-6-33-0" />
+      <feImage
+         xlink:href=""
+         result="result2"
+         id="feImage60019-1-8-4" />
+      <feBlend
+         result="result4"
+         in2="result1"
+         mode="multiply"
+         id="feBlend60021-1-0-2" />
+      <feMerge
+         result="result3"
+         id="feMerge60027-5-5-22">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode60023-98-66-05" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode60025-48-4-5" />
+      </feMerge>
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -2544,9 +3420,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.7024605"
-     inkscape:cx="286.02601"
-     inkscape:cy="252.66981"
+     inkscape:zoom="2.1163695"
+     inkscape:cx="305.47596"
+     inkscape:cy="196.79928"
      inkscape:document-units="px"
      inkscape:current-layer="g52456"
      showgrid="false"
@@ -2570,7 +3446,7 @@
      inkscape:snap-midpoints="false"
      inkscape:snap-nodes="true"
      inkscape:snap-others="true"
-     showguides="false"
+     showguides="true"
      inkscape:showpageshadow="2"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1">
@@ -2586,7 +3462,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -3857,15 +4732,10 @@
            x="256.23221"
            sodipodi:role="line">DATA OUTPUT</tspan><tspan
            style="font-size:8.125px;line-height:125%"
-           id="tspan10713"
            y="253.60768"
            x="256.23221"
-           sodipodi:role="line">REGISTER</tspan><tspan
-           style="font-size:8.125px;line-height:125%"
-           id="tspan10715"
-           y="263.76392"
-           x="256.23221"
-           sodipodi:role="line">(DOR)</tspan></text>
+           sodipodi:role="line"
+           id="tspan160164">REGISTER (DOR)</tspan></text>
       <text
          id="text7193-1"
          y="233.58119"
@@ -6119,26 +6989,11 @@
          x="400.98413"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
          xml:space="preserve"><tspan
-           id="tspan10668-4"
+           id="tspan60883"
            y="198.87331"
            x="400.98413"
            sodipodi:role="line"
-           style="font-size:8.125px;line-height:1.25">PROGRAM</tspan><tspan
-           id="tspan60879"
-           y="209.02956"
-           x="400.98413"
-           sodipodi:role="line"
-           style="font-size:8.125px;line-height:1.25">COUNTER</tspan><tspan
-           id="tspan60881"
-           y="219.18581"
-           x="400.98413"
-           sodipodi:role="line"
-           style="font-size:8.125px;line-height:1.25">LOW SELECT</tspan><tspan
-           id="tspan60883"
-           y="229.34206"
-           x="400.98413"
-           sodipodi:role="line"
-           style="font-size:8.125px;line-height:1.25">REGISTER (PCLS)</tspan></text>
+           style="font-size:8.125px;line-height:1.25">PCLS</tspan></text>
       <path
          sodipodi:nodetypes="ccc"
          inkscape:connector-curvature="0"
@@ -6261,30 +7116,15 @@
            sodipodi:role="line">ɸ2</tspan></text>
       <text
          id="text4735-1-5-7-5"
-         y="310.84833"
+         y="307.09833"
          x="400.89288"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-size:8.125px;line-height:117%"
-           id="tspan67959-9"
-           y="310.84833"
-           x="400.89288"
-           sodipodi:role="line">PROGRAM</tspan><tspan
-           style="font-size:8.125px;line-height:117%"
-           id="tspan69848"
-           y="320.35458"
-           x="400.89288"
-           sodipodi:role="line">COUNTER LOW</tspan><tspan
-           style="font-size:8.125px;line-height:117%"
-           id="tspan69850"
-           y="329.86084"
-           x="400.89288"
-           sodipodi:role="line">REGISTER</tspan><tspan
-           style="font-size:8.125px;line-height:117%"
            id="tspan69852"
-           y="339.36707"
+           y="307.09833"
            x="400.89288"
-           sodipodi:role="line">(PCL)</tspan></text>
+           sodipodi:role="line">PC LOW (PCL)</tspan></text>
       <path
          sodipodi:nodetypes="ccc"
          inkscape:connector-curvature="0"
@@ -6535,19 +7375,24 @@
          id="path1872-3-7" />
       <text
          id="text4735-1-7-6-1-7-1"
-         y="550.27588"
-         x="395.61319"
+         y="552.15088"
+         x="361.86319"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
          xml:space="preserve"><tspan
            id="tspan11100-3-0-1"
            style="font-size:8.125px;line-height:125%"
-           y="550.27588"
-           x="395.61319"
-           sodipodi:role="line">B INPUT REGISTER</tspan><tspan
+           y="552.15088"
+           x="361.86319"
+           sodipodi:role="line">B INPUT</tspan><tspan
+           style="font-size:8.125px;line-height:125%"
+           y="562.30713"
+           x="361.86319"
+           sodipodi:role="line"
+           id="tspan123596">REGISTER</tspan><tspan
            id="tspan79907"
            style="font-size:8.125px;line-height:125%"
-           y="560.43213"
-           x="395.61319"
+           y="572.46338"
+           x="361.86319"
            sodipodi:role="line">(BI)</tspan></text>
       <path
          sodipodi:nodetypes="cc"
@@ -7082,19 +7927,24 @@
          y="742.47961" />
       <text
          id="text4735-1-7-6-1-7-1-11"
-         y="756.64697"
-         x="377.16867"
+         y="751.02197"
+         x="364.04367"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
          xml:space="preserve"><tspan
            id="tspan11100-3-0-1-2"
            style="font-size:8.125px;line-height:125%"
-           y="756.64697"
-           x="377.16867"
-           sodipodi:role="line">A INPUT REGISTER</tspan><tspan
+           y="751.02197"
+           x="364.04367"
+           sodipodi:role="line">A INPUT</tspan><tspan
+           style="font-size:8.125px;line-height:125%"
+           y="761.17822"
+           x="364.04367"
+           sodipodi:role="line"
+           id="tspan124638">REGISTER</tspan><tspan
            id="tspan79907-62"
            style="font-size:8.125px;line-height:125%"
-           y="766.80322"
-           x="377.16867"
+           y="771.33447"
+           x="364.04367"
            sodipodi:role="line">(AI)</tspan></text>
       <path
          sodipodi:nodetypes="cccccccccc"
@@ -7534,20 +8384,15 @@
          style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
       <text
          id="text4735-1-7-6-1-7-1-11-0-2-6"
-         y="905.90454"
+         y="902.15454"
          x="462.41867"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
          xml:space="preserve"><tspan
-           id="tspan103666-3-9"
-           style="font-size:8.125px;line-height:125%"
-           y="905.90454"
-           x="462.41867"
-           sodipodi:role="line">ACCUMULATOR</tspan><tspan
            id="tspan103826"
            style="font-size:8.125px;line-height:125%"
-           y="916.06079"
+           y="902.15454"
            x="462.41867"
-           sodipodi:role="line">(AC)</tspan></text>
+           sodipodi:role="line">ACCUMULATOR (AC)</tspan></text>
       <path
          sodipodi:nodetypes="cccccccc"
          inkscape:connector-curvature="0"
@@ -7677,15 +8522,8 @@
          sodipodi:nodetypes="cccc"
          inkscape:connector-curvature="0"
          id="rect7693"
-         d="m 538,232.3622 h -37 v -42 h 37"
-         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
-      <rect
-         y="232.3622"
-         x="501"
-         height="13"
-         width="37"
-         id="rect7695"
-         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+         d="m 537.99995,245.04616 h -36.93032 v -54.61433 h 36.93032"
+         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.13925;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
       <rect
          y="264.36221"
          x="501"
@@ -7700,19 +8538,11 @@
          d="m 538,388.36221 h -37 v -53 h 37"
          style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
       <path
-         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-         d="m 537.94633,232.3622 h 37 v -42 h -37"
+         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.13925;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 537.94638,245.04616 H 574.8767 V 190.43183 H 537.94638"
          id="path7709"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cccc" />
-      <rect
-         transform="scale(-1,1)"
-         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-         id="rect7711"
-         width="37"
-         height="13"
-         x="-574.94635"
-         y="232.3622" />
       <rect
          transform="scale(-1,1)"
          style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
@@ -7801,69 +8631,16 @@
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="ccc" />
       <text
-         id="text4743-7-5-1-01-9"
-         y="341.20959"
-         x="545.16241"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal"
-           id="tspan4751-4-7-7-2-3"
-           y="341.20959"
-           x="545.16241"
-           sodipodi:role="line">LOAD</tspan><tspan
-           id="tspan4747-0-1-0-5-4"
-           y="346.30029"
-           x="545.16241"
-           sodipodi:role="line"
-           style="font-size:5px;line-height:1.03"> </tspan></text>
-      <text
          id="text4735-1-5-0"
          y="198.87331"
          x="537.98413"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
          xml:space="preserve"><tspan
-           id="tspan10668-4-8"
+           id="tspan60883-4"
            y="198.87331"
            x="537.98413"
            sodipodi:role="line"
-           style="font-size:8.125px;line-height:1.25">PROGRAM</tspan><tspan
-           id="tspan60879-6"
-           y="209.02956"
-           x="537.98413"
-           sodipodi:role="line"
-           style="font-size:8.125px;line-height:1.25">COUNTER</tspan><tspan
-           id="tspan60881-4"
-           y="219.18581"
-           x="537.98413"
-           sodipodi:role="line"
-           style="font-size:8.125px;line-height:1.25">HIGH SELECT</tspan><tspan
-           id="tspan60883-4"
-           y="229.34206"
-           x="537.98413"
-           sodipodi:role="line"
-           style="font-size:8.125px;line-height:1.25">REGISTER (PCHS)</tspan></text>
-      <text
-         id="text4735-1-5-7-4"
-         y="240.76222"
-         x="519.48657"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-size:6.875px;line-height:1.25"
-           id="tspan67959-1"
-           y="240.76222"
-           x="519.48657"
-           sodipodi:role="line">PCHS(4-7)</tspan></text>
-      <text
-         id="text4735-1-5-7-4-2"
-         y="240.76222"
-         x="556.43292"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-size:6.875px;line-height:1.25"
-           id="tspan67959-1-5"
-           y="240.76222"
-           x="556.43292"
-           sodipodi:role="line">PCHS(0-3)</tspan></text>
+           style="font-size:8.125px;line-height:1.25">PCHS</tspan></text>
       <path
          style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker66338-2);color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
          d="m 575.11928,254.25678 h -3.49199 v 8.46934"
@@ -7893,57 +8670,6 @@
          id="path14104"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cccc" />
-      <text
-         transform="rotate(-90)"
-         id="text4743-7-5-1-0-9-5"
-         y="536.20105"
-         x="-295.21686"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.375px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal"
-           id="tspan4751-4-7-7-6-2-0"
-           y="536.20105"
-           x="-295.21686"
-           sodipodi:role="line">INCREMENT</tspan><tspan
-           id="tspan4747-0-1-0-0-75-8"
-           y="540.6554"
-           x="-295.21686"
-           sodipodi:role="line"
-           style="font-size:4.375px;line-height:1.03"> </tspan></text>
-      <text
-         transform="rotate(-90)"
-         id="text4743-7-5-1-0-9-58"
-         y="572.84229"
-         x="-295.21686"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.375px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal"
-           id="tspan4751-4-7-7-6-2-2"
-           y="572.84229"
-           x="-295.21686"
-           sodipodi:role="line">INCREMENT</tspan><tspan
-           id="tspan4747-0-1-0-0-75-2"
-           y="577.29663"
-           x="-295.21686"
-           sodipodi:role="line"
-           style="font-size:4.375px;line-height:1.03"> </tspan></text>
-      <text
-         transform="rotate(-90)"
-         id="text4743-7-5-1-0-9-58-8"
-         y="542.45581"
-         x="-294.81738"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.375px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal"
-           id="tspan4751-4-7-7-6-2-2-6"
-           y="542.45581"
-           x="-294.81738"
-           sodipodi:role="line">CARRY OUT</tspan><tspan
-           id="tspan4747-0-1-0-0-75-2-3"
-           y="546.91016"
-           x="-294.81738"
-           sodipodi:role="line"
-           style="font-size:4.375px;line-height:1.03"> </tspan></text>
       <text
          id="text4735-1-5-7-4-4"
          y="273.95145"
@@ -8025,64 +8751,6 @@
            x="561.86578"
            id="tspan7195-4-3"
            sodipodi:role="line">ɸ2</tspan></text>
-      <text
-         id="text4743-7-5-1-01-9-1"
-         y="350.67926"
-         x="501.93018"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal"
-           id="tspan4751-4-7-7-2-3-1"
-           y="350.67926"
-           x="501.93018"
-           sodipodi:role="line">PCH</tspan><tspan
-           id="tspan4747-0-1-0-5-4-7"
-           y="355.76996"
-           x="501.93018"
-           sodipodi:role="line"
-           style="font-size:5px;line-height:1.03"> </tspan></text>
-      <text
-         id="text4743-7-5-0-2-0-9-6"
-         y="382.14886"
-         x="511.90433"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal;text-align:center;text-anchor:middle"
-           id="tspan4751-4-7-9-4-2-8-9"
-           y="382.14886"
-           x="511.90433"
-           sodipodi:role="line">BUS</tspan><tspan
-           id="tspan10646-4-7-7"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal;text-align:center;text-anchor:middle"
-           y="387.29886"
-           x="511.90433"
-           sodipodi:role="line">ENABLE</tspan><tspan
-           id="tspan4747-0-1-7-0-1-75-4"
-           y="392.38956"
-           x="511.90433"
-           sodipodi:role="line"
-           style="font-size:5px;line-height:1.03"> </tspan></text>
-      <text
-         id="text4743-7-5-0-2-0-9-7"
-         y="382.14886"
-         x="563.96503"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal;text-align:center;text-anchor:middle"
-           id="tspan4751-4-7-9-4-2-8-3"
-           y="382.14886"
-           x="563.96503"
-           sodipodi:role="line">BUS</tspan><tspan
-           id="tspan10646-4-7-4"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal;text-align:center;text-anchor:middle"
-           y="387.29886"
-           x="563.96503"
-           sodipodi:role="line">ENABLE</tspan><tspan
-           id="tspan4747-0-1-7-0-1-75-0"
-           y="392.38956"
-           x="563.96503"
-           sodipodi:role="line"
-           style="font-size:5px;line-height:1.03"> </tspan></text>
       <path
          style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker17865);color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
          d="m 585.28194,387.35954 v -4.0201 h -9.23374"
@@ -8209,105 +8877,21 @@
          id="rect24512"
          style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
       <text
-         id="text4743-7-5-0-2-0-4-61"
-         y="511.18179"
-         x="503.63458"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal;text-align:center;text-anchor:middle"
-           id="tspan4751-4-7-9-4-2-7-78"
-           y="511.18179"
-           x="503.63458"
-           sodipodi:role="line">BUS</tspan><tspan
-           id="tspan10646-4-5-3"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal;text-align:center;text-anchor:middle"
-           y="516.33179"
-           x="503.63458"
-           sodipodi:role="line">ENABLE</tspan><tspan
-           id="tspan4747-0-1-7-0-1-5-47"
-           y="521.42249"
-           x="503.63458"
-           sodipodi:role="line"
-           style="font-size:5px;line-height:1.03"> </tspan></text>
-      <text
-         id="text4743-7-5-0-2-0-4-98"
-         y="519.85596"
-         x="564.11469"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal;text-align:center;text-anchor:middle"
-           id="tspan4751-4-7-9-4-2-7-21"
-           y="519.85596"
-           x="564.11469"
-           sodipodi:role="line">BUS</tspan><tspan
-           id="tspan10646-4-5-15"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal;text-align:center;text-anchor:middle"
-           y="525.00598"
-           x="564.11469"
-           sodipodi:role="line">ENABLE</tspan><tspan
-           id="tspan4747-0-1-7-0-1-5-5"
-           y="530.09662"
-           x="564.11469"
-           sodipodi:role="line"
-           style="font-size:5px;line-height:1.03"> </tspan></text>
-      <text
-         id="text4743-7-5-1-01-9-4"
-         y="477.27026"
-         x="560.28894"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal"
-           id="tspan4751-4-7-7-2-3-0"
-           y="477.27026"
-           x="560.28894"
-           sodipodi:role="line">LOAD</tspan><tspan
-           id="tspan4747-0-1-0-5-4-3"
-           y="482.36096"
-           x="560.28894"
-           sodipodi:role="line"
-           style="font-size:5px;line-height:1.03"> </tspan></text>
-      <text
-         id="text4743-7-5-1-01-9-0"
-         y="477.27026"
-         x="494.45532"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:1.03;font-family:Terminal;-inkscape-font-specification:Terminal"
-           id="tspan4751-4-7-7-2-3-7"
-           y="477.27026"
-           x="494.45532"
-           sodipodi:role="line">HOLD</tspan><tspan
-           id="tspan4747-0-1-0-5-4-5"
-           y="482.36096"
-           x="494.45532"
-           sodipodi:role="line"
-           style="font-size:5px;line-height:1.03"> </tspan></text>
-      <text
          id="text4735-1-5-7-5-6"
-         y="487.34833"
+         y="479.84833"
          x="533.11316"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-size:8.125px;line-height:117%"
-           id="tspan67959-9-8"
-           y="487.34833"
-           x="533.11316"
-           sodipodi:role="line">STACK</tspan><tspan
-           style="font-size:8.125px;line-height:117%"
            id="tspan69850-5"
-           y="496.85458"
+           y="479.84833"
            x="533.11316"
-           sodipodi:role="line">POINTER</tspan><tspan
-           id="tspan24904"
-           style="font-size:8.125px;line-height:117%"
-           y="506.36084"
-           x="533.11316"
-           sodipodi:role="line">REGISTER</tspan><tspan
+           sodipodi:role="line">STACK POINTER</tspan><tspan
            style="font-size:8.125px;line-height:117%"
            id="tspan69852-4"
-           y="515.86707"
+           y="489.35458"
            x="533.11316"
-           sodipodi:role="line">(S)</tspan></text>
+           sodipodi:role="line">REGISTER (S)</tspan></text>
       <path
          style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker24914);color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
          d="m 482.54109,527.33603 v -15.03894 h 8.11449"
@@ -8575,30 +9159,15 @@
            sodipodi:role="line">ɸ2</tspan></text>
       <text
          id="text4735-1-5-7-5-2"
-         y="348.84833"
+         y="343.22333"
          x="538.17657"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-size:8.125px;line-height:117%"
-           id="tspan67959-9-5"
-           y="348.84833"
-           x="538.17657"
-           sodipodi:role="line">PROGRAM</tspan><tspan
-           style="font-size:8.125px;line-height:117%"
-           id="tspan69848-2"
-           y="358.35458"
-           x="538.17657"
-           sodipodi:role="line">COUNTER HIGH</tspan><tspan
-           style="font-size:8.125px;line-height:117%"
-           id="tspan69850-0"
-           y="367.86084"
-           x="538.17657"
-           sodipodi:role="line">REGISTER</tspan><tspan
-           style="font-size:8.125px;line-height:117%"
            id="tspan69852-7"
-           y="377.36707"
+           y="343.22333"
            x="538.17657"
-           sodipodi:role="line">(PCH)</tspan></text>
+           sodipodi:role="line">PC HIGH (PCH)</tspan></text>
       <text
          transform="rotate(-90)"
          id="text4735-07-0-3-9"
@@ -9007,33 +9576,33 @@
            sodipodi:role="line">0</tspan></text>
       <text
          id="text4735-1-5-7-4-4-2-5"
-         y="315.2952"
+         y="294.6702"
          x="658.79968"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
          xml:space="preserve"><tspan
            id="tspan15176-7-5"
            style="font-size:8.125px;line-height:1.25"
-           y="315.2952"
+           y="294.6702"
            x="658.79968"
            sodipodi:role="line">ADDRESS</tspan><tspan
            id="tspan46901"
            style="font-size:8.125px;line-height:1.25"
-           y="325.45145"
+           y="304.82645"
            x="658.79968"
            sodipodi:role="line">BUS</tspan><tspan
            id="tspan46903"
            style="font-size:8.125px;line-height:1.25"
-           y="335.6077"
+           y="314.9827"
            x="658.79968"
            sodipodi:role="line">HIGH</tspan><tspan
            id="tspan46905"
            style="font-size:8.125px;line-height:1.25"
-           y="345.76395"
+           y="325.13895"
            x="658.79968"
            sodipodi:role="line">REGISTER</tspan><tspan
            id="tspan46907"
            style="font-size:8.125px;line-height:1.25"
-           y="355.9202"
+           y="335.2952"
            x="658.79968"
            sodipodi:role="line">(ABH)</tspan></text>
       <path
@@ -9492,31 +10061,31 @@
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
          x="658.79968"
-         y="563.29517"
+         y="538.92017"
          id="text48921"><tspan
            sodipodi:role="line"
            x="658.79968"
-           y="563.29517"
+           y="538.92017"
            style="font-size:8.125px;line-height:1.25"
            id="tspan48923">ADDRESS</tspan><tspan
            sodipodi:role="line"
            x="658.79968"
-           y="573.45142"
+           y="549.07642"
            style="font-size:8.125px;line-height:1.25"
            id="tspan48925">BUS</tspan><tspan
            sodipodi:role="line"
            x="658.79968"
-           y="583.60767"
+           y="559.23267"
            style="font-size:8.125px;line-height:1.25"
            id="tspan48927">LOW</tspan><tspan
            sodipodi:role="line"
            x="658.79968"
-           y="593.76392"
+           y="569.38892"
            style="font-size:8.125px;line-height:1.25"
            id="tspan48929">REGISTER</tspan><tspan
            sodipodi:role="line"
            x="658.79968"
-           y="603.92017"
+           y="579.54517"
            style="font-size:8.125px;line-height:1.25"
            id="tspan48931">(ABL)</tspan></text>
       <path
@@ -9727,27 +10296,27 @@
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2;stroke-opacity:1"
          x="660.61316"
-         y="692.20068"
+         y="686.57568"
          id="text48921-6"><tspan
            sodipodi:role="line"
            x="660.61316"
-           y="692.20068"
+           y="686.57568"
            style="font-size:8.125px;line-height:1.25"
            id="tspan48931-2">X</tspan><tspan
            id="tspan49064"
            sodipodi:role="line"
            x="660.61316"
-           y="702.35693"
+           y="696.73193"
            style="font-size:8.125px;line-height:1.25">INDEX</tspan><tspan
            id="tspan49066"
            sodipodi:role="line"
            x="660.61316"
-           y="712.51318"
+           y="706.88818"
            style="font-size:8.125px;line-height:1.25">REGISTER</tspan><tspan
            id="tspan49068"
            sodipodi:role="line"
            x="660.61316"
-           y="722.66943"
+           y="717.04443"
            style="font-size:8.125px;line-height:1.25">(X)</tspan></text>
       <path
          inkscape:connector-curvature="0"
@@ -9942,6 +10511,17 @@
          d="m 562.92025,810.52502 h 8"
          id="path6919"
          inkscape:connector-curvature="0" />
+      <text
+         xml:space="preserve"
+         style="font-size:11.25px;fill:#000000;fill-opacity:1;stroke:#010000;stroke-width:0.9375;stroke-opacity:1"
+         x="62.035851"
+         y="181.6595"
+         id="text57017"><tspan
+           sodipodi:role="line"
+           id="tspan57015"
+           style="stroke-width:0.9375;stroke:#010000;stroke-opacity:1"
+           x="62.035851"
+           y="181.6595" /></text>
     </g>
   </g>
 </svg>
