@@ -13,15 +13,85 @@
     // predecode register
     [537, 215, true, [758,361,955,894,369,829,1669,1690]]
   ];
+  const BIT = 0;
+  const BIT_INV = 1;
   const signal_list = [
-    ["clk1", 1163, false],
-    ["clk2", 421, false],
-    ["t0", 1536, true],
-    ["t1", 156, true],
-    ["t2", 971, true],
-    ["t3", 1567, true],
-    ["t4", 690, true],
-    ["t5", 909, true]
+    ["clk1", 1163, BIT],
+    ["clk2", 421, BIT],
+    ["t0", 1536, BIT_INV],
+    ["t1", 156, BIT_INV],
+    ["t2", 971, BIT_INV],
+    ["t3", 1567, BIT_INV],
+    ["t4", 690, BIT_INV],
+    ["t5", 909, BIT_INV],
+    ["status_c", 32, BIT],
+    ["status_z", 627, BIT],
+    ["status_i", 1553, BIT],
+    ["status_d", 348, BIT],
+    ["status_b", 1119, BIT],
+    ["status_v", 1625, BIT],
+    ["status_n", 69, BIT],
+    ["tzpre", 792, BIT_INV],
+    ["dl_db", 863, BIT],
+    ["dl_adl", 1564, BIT],
+    ["dl_adh", 41, BIT],
+    ["n0_adh0", 229, BIT],
+    ["n0_adh1-7", 203, BIT],
+    ["adh_abh", 821, BIT],
+    ["adl_abl", 639, BIT],
+    ["pcl_pcl", 898, BIT],
+    ["adl_pcl", 414, BIT],
+    ["i_pc", 379, BIT_INV],
+    ["pcl_db", 283, BIT],
+    ["pcl_adl", 438, BIT],
+    ["pch_pch", 741, BIT],
+    ["adh_pch", 48, BIT],
+    ["pch_db", 247, BIT],
+    ["pch_adh", 1235, BIT],
+    ["sb_adh", 140, BIT],
+    ["sb_db", 1060, BIT],
+    ["s_adl", 1468, BIT],
+    ["sb_s", 874, BIT],
+    ["s_s", 654, BIT],
+    ["s_sb", 1700, BIT],
+    ["sb_ac", 534, BIT],
+    ["ac_db", 1331, BIT],
+    ["ac_sb", 1698, BIT],
+    ["sb_x", 1186, BIT],
+    ["x_sb", 1263, BIT],
+    ["sb_y", 325, BIT],
+    ["y_sb", 801, BIT],
+    ["dbinv_add", 1068, BIT],
+    ["db_add", 859, BIT],
+    ["adl_add", 437, BIT],
+    ["daa", 1201, BIT_INV],
+    ["dsa", 725, BIT_INV],
+    ["n1_addc", 1165, BIT_INV],
+    ["sums", 921, BIT],
+    ["ands", 574, BIT],
+    ["eors", 1666, BIT],
+    ["ors", 59, BIT],
+    ["srs", 362, BIT],
+    ["add_adl", 1015, BIT],
+    ["add_sb0-6", 129, BIT],
+    ["add_sb7", 214, BIT],
+    ["n0_add", 984, BIT],
+    ["sb_add", 549, BIT],
+    ["p_db", 1042, BIT],
+    ["db0_c", 507, BIT],
+    ["ir5_c", 253, BIT],
+    ["acr_c", 954, BIT],
+    ["db7_n", 754, BIT],
+    ["dbz_z", 755, BIT],
+    ["ir5_i", 1662, BIT],
+    ["ir5_d", 1492, BIT],
+    ["db6_v", 1111, BIT],
+    ["avr_v", 1436, BIT],
+    ["n1_v", 1177, BIT],
+    ["n0_v", 587, BIT],
+    ["db_p", 781, BIT],
+    ["write", 1156, BIT_INV],
+    ["RW", 1156, BIT]
   ];
 
   var proc;
@@ -45,9 +115,11 @@
     }
     for (let i=0; i<signal_list.length; i++) {
       let value = simulator.readNode(proc, signal_list[i][1]);
-      if (signal_list[i][2])
-        value = ! value;
-      set_colour(signal_list[i][0], value?'red':'grey');
+      let type = signal_list[i][2];
+      if (type == BIT)
+        set_colour(signal_list[i][0], value?'red':'grey');
+      else if (type == BIT_INV)
+        set_colour(signal_list[i][0], value?'grey':'red');
     }
   }
 
