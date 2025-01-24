@@ -4,6 +4,7 @@
   const BIT_INV = 1;
   const BYTE_ = 2;
   const BYTE_INV = 3;
+  const OVERLAY = 4;
   const signal_list = [
     ["clk1", 1163, BIT],
     ["clk2", 421, BIT],
@@ -82,9 +83,11 @@
     ["write", 1156, BIT_INV],
     ["RW", 1156, BIT],
     ["pclc", 1704, BIT],
-    ["clk1_adl_abl", ["clk1","adl_abl"], BIT],
-    ["clk1_adh_abh", ["clk1","adh_abh"], BIT],
+    ["clk1_adl_abl", [1163,639], BIT],
+    ["clk1_adh_abh", [1163,821], BIT],
     /* transfers */
+    ["pcl_abl", [438,1163,639], OVERLAY],
+    ["pch_abh", [1235,1163,821], OVERLAY],
     /* registers */
     ["ir", [194,702,1182,1125,26,1394,895,1320], BYTE_INV],
     ["DB", [1005,82,945,650,1393,175,1591,1349], BYTE_],
@@ -115,17 +118,6 @@
 
   function single_step() {
     simulator.step(proc);
-    function node_value(n) {
-      if (n.constructor === Array)
-        return n.map(node_value).reduce(function(a,b){ return a&&b; });
-      else if (n>=0)
-        return simulator.readNode(proc, n);
-      else
-        for (let i=0; i<signal_list.length; i++)
-          if (signal_list[i][0] === n)
-            return node_value(signal_list[i][1])
-      console.log("node not found "+n);
-    }
     function set_colour(cls, col) {
       let matches = svg_doc.getElementsByClassName(cls);
       for (let i=0; i<matches.length; i++) {
@@ -134,6 +126,12 @@
         matches[i].style.fill = col;
         matches[i].stroke = col;
       }
+    }
+    function set_overlay(cls, value) {
+      let matches = svg_doc.getElementsByClassName(cls);
+      console.log(cls + " = " + value);
+      for (let i=0; i<matches.length; i++)
+        matches[i].style.display = value ? "inline":"none";
     }
     function set_register(cls, value) {
       let matches = $("view").getElementsByClassName(cls);
@@ -145,11 +143,19 @@
     }
     for (let i=0; i<signal_list.length; i++) {
       let type = signal_list[i][2];
-      if (type==BIT || type==BIT_INV) {
-        let value = node_value(signal_list[i][1]);
+      if (type==BIT || type==BIT_INV || type==OVERLAY) {
+        let nodes = signal_list[i][1];
+        let value = true;
+        if (nodes.constructor !== Array)
+          nodes = [nodes];
+        for (let i=0; i<nodes.length; i++)
+          value &= simulator.readNode(proc, nodes[i]);
         if (type == BIT_INV)
           value = !value;
-        set_colour(signal_list[i][0], value?'red':'grey');
+        if (type == OVERLAY)
+          set_overlay(signal_list[i][0], value);
+        else
+          set_colour(signal_list[i][0], value?'red':'grey');
       } else if (type==BYTE_ || type==BYTE_INV) {
         let value = simulator.readNode8.apply(null,
             [proc].concat(signal_list[i][1]));
