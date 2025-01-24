@@ -4,7 +4,6 @@
   const BIT_INV = 1;
   const BYTE_ = 2;
   const BYTE_INV = 3;
-  const OVERLAY = 4;
   const signal_list = [
     ["clk1", 1163, BIT],
     ["clk2", 421, BIT],
@@ -86,8 +85,9 @@
     ["clk1_adl_abl", [1163,639], BIT],
     ["clk1_adh_abh", [1163,821], BIT],
     /* transfers */
-    ["pcl_abl", [438,1163,639], OVERLAY],
-    ["pch_abh", [1235,1163,821], OVERLAY],
+    ["pcl_abl", [438,1163,639], BIT],
+    ["pch_abh", [1235,1163,821], BIT],
+    ["dl_dor", [863,1163], BIT],
     /* registers */
     ["ir", [194,702,1182,1125,26,1394,895,1320], BYTE_INV],
     ["DB", [1005,82,945,650,1393,175,1591,1349], BYTE_],
@@ -118,20 +118,19 @@
 
   function single_step() {
     simulator.step(proc);
-    function set_colour(cls, col) {
+    function set_bit(cls, value) {
       let matches = svg_doc.getElementsByClassName(cls);
       for (let i=0; i<matches.length; i++) {
-        matches[i].style.color = col;
-        matches[i].style.solidColor = col;
-        matches[i].style.fill = col;
-        matches[i].stroke = col;
+        if (matches[i].classList.contains("overlay")) {
+          matches[i].style.display = value ? "inline":"none";
+        } else {
+          let col = value ? 'red':'grey';
+          matches[i].style.color = col;
+          matches[i].style.solidColor = col;
+          matches[i].style.fill = col;
+          matches[i].stroke = col;
+        }
       }
-    }
-    function set_overlay(cls, value) {
-      let matches = svg_doc.getElementsByClassName(cls);
-      console.log(cls + " = " + value);
-      for (let i=0; i<matches.length; i++)
-        matches[i].style.display = value ? "inline":"none";
     }
     function set_register(cls, value) {
       let matches = $("view").getElementsByClassName(cls);
@@ -143,7 +142,7 @@
     }
     for (let i=0; i<signal_list.length; i++) {
       let type = signal_list[i][2];
-      if (type==BIT || type==BIT_INV || type==OVERLAY) {
+      if (type==BIT || type==BIT_INV) {
         let nodes = signal_list[i][1];
         let value = true;
         if (nodes.constructor !== Array)
@@ -152,10 +151,7 @@
           value &= simulator.readNode(proc, nodes[i]);
         if (type == BIT_INV)
           value = !value;
-        if (type == OVERLAY)
-          set_overlay(signal_list[i][0], value);
-        else
-          set_colour(signal_list[i][0], value?'red':'grey');
+        set_bit(signal_list[i][0], value);
       } else if (type==BYTE_ || type==BYTE_INV) {
         let value = simulator.readNode8.apply(null,
             [proc].concat(signal_list[i][1]));
