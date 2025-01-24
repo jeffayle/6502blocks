@@ -82,6 +82,8 @@
     ["write", 1156, BIT_INV],
     ["RW", 1156, BIT],
     ["pclc", 1704, BIT],
+    ["clk1_adl_abl", [1163,639], BIT],
+    ["clk1_adh_abh", [1163,821], BIT],
     /* registers */
     ["ir", [194,702,1182,1125,26,1394,895,1320], BYTE_INV],
     ["DB", [1005,82,945,650,1393,175,1591,1349], BYTE_],
@@ -131,20 +133,24 @@
     }
     for (let i=0; i<signal_list.length; i++) {
       let type = signal_list[i][2];
-      let value;
-      if (type==BIT || type==BIT_INV)
-        value = simulator.readNode(proc, signal_list[i][1]);
-      else if (type==BYTE_ || type==BYTE_INV)
-        value = simulator.readNode8.apply(null, [proc].concat(signal_list[i][1]));
-
-      if (type == BIT)
+      if (type==BIT || type==BIT_INV) {
+        let sig = signal_list[i][1];
+        let value = true;
+        if (sig.constructor !== Array)
+          sig = [sig];
+        for (let i=0; i<sig.length; i++)
+          value &= simulator.readNode(proc, sig[i]);
+        if (type == BIT_INV)
+          value = !value;
         set_colour(signal_list[i][0], value?'red':'grey');
-      else if (type == BIT_INV)
-        set_colour(signal_list[i][0], value?'grey':'red');
-      else if (type == BYTE_)
-        set_register(signal_list[i][0], value);
-      else if (type == BYTE_INV)
-        set_register(signal_list[i][0], value^255);
+      } else if (type==BYTE_ || type==BYTE_INV) {
+        let value = simulator.readNode8.apply(null,
+            [proc].concat(signal_list[i][1]));
+        if (type == BYTE_)
+          set_register(signal_list[i][0], value);
+        else if (type == BYTE_INV)
+          set_register(signal_list[i][0], value^255);
+      }
     }
   }
 
