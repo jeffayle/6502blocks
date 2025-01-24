@@ -3420,11 +3420,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.528597"
-     inkscape:cx="641.70864"
-     inkscape:cy="290.36492"
+     inkscape:zoom="2.313444"
+     inkscape:cx="474.18481"
+     inkscape:cy="443.92689"
      inkscape:document-units="px"
-     inkscape:current-layer="g52456"
+     inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="2554"
      inkscape:window-height="1375"
@@ -3453,6 +3453,36 @@
     <inkscape:grid
        type="xygrid"
        id="grid4695" />
+    <sodipodi:guide
+       position="448.6384,726.66249"
+       orientation="0,-1"
+       id="guide184967"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="458.1774,724.60207"
+       orientation="1,0"
+       id="guide184969"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="456.34591,467.12528"
+       orientation="0,-1"
+       id="guide184971"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="602.47973,687.32106"
+       orientation="0,-1"
+       id="guide192276"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="621.70557,716.26536"
+       orientation="0,-1"
+       id="guide192278"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="596.20721,677.92104"
+       orientation="1,0"
+       id="guide192280"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -3465,6 +3495,34 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="bus transfers"
+     style="fill:#008000">
+    <g
+       id="g190462"
+       style="display:none"
+       class="pcl_abl"
+       inkscape:label="pcl_abl">
+      <path
+         style="fill:#008000;fill-opacity:0;stroke:#23c336;stroke-width:3.75;stroke-dasharray:none;stroke-opacity:1"
+         d="m 429.07975,325.69939 29.09765,3.3e-4 0.0623,259.5248 h 130.44002"
+         id="path187703"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:#008000;fill-opacity:0;stroke:#23c336;stroke-width:3.75;stroke-dasharray:none;stroke-opacity:1"
+         d="m 602.47974,585.24301 18.40239,-0.006 1.69669,-2.5e-4"
+         id="path187705"
+         sodipodi:nodetypes="ccc" />
+    </g>
+    <path
+       style="display:none;fill:#008000;fill-opacity:0;stroke:#23c336;stroke-width:3.75;stroke-dasharray:none;stroke-opacity:1"
+       d="m 567.52608,365.04381 28.68113,-0.003 v -28.94396 h 25.49836"
+       id="path192282"
+       inkscape:label="pch_abh"
+       class="pch_abh" />
+  </g>
   <g
      inkscape:label="6502"
      inkscape:groupmode="layer"
@@ -10537,8 +10595,4 @@
            y="181.6595" /></text>
     </g>
   </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="bus transfers" />
 </svg>

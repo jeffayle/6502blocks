@@ -82,8 +82,9 @@
     ["write", 1156, BIT_INV],
     ["RW", 1156, BIT],
     ["pclc", 1704, BIT],
-    ["clk1_adl_abl", [1163,639], BIT],
-    ["clk1_adh_abh", [1163,821], BIT],
+    ["clk1_adl_abl", ["clk1","adl_abl"], BIT],
+    ["clk1_adh_abh", ["clk1","adh_abh"], BIT],
+    /* transfers */
     /* registers */
     ["ir", [194,702,1182,1125,26,1394,895,1320], BYTE_INV],
     ["DB", [1005,82,945,650,1393,175,1591,1349], BYTE_],
@@ -114,6 +115,17 @@
 
   function single_step() {
     simulator.step(proc);
+    function node_value(n) {
+      if (n.constructor === Array)
+        return n.map(node_value).reduce(function(a,b){ return a&&b; });
+      else if (n>=0)
+        return simulator.readNode(proc, n);
+      else
+        for (let i=0; i<signal_list.length; i++)
+          if (signal_list[i][0] === n)
+            return node_value(signal_list[i][1])
+      console.log("node not found "+n);
+    }
     function set_colour(cls, col) {
       let matches = svg_doc.getElementsByClassName(cls);
       for (let i=0; i<matches.length; i++) {
@@ -134,12 +146,7 @@
     for (let i=0; i<signal_list.length; i++) {
       let type = signal_list[i][2];
       if (type==BIT || type==BIT_INV) {
-        let sig = signal_list[i][1];
-        let value = true;
-        if (sig.constructor !== Array)
-          sig = [sig];
-        for (let i=0; i<sig.length; i++)
-          value &= simulator.readNode(proc, sig[i]);
+        let value = node_value(signal_list[i][1]);
         if (type == BIT_INV)
           value = !value;
         set_colour(signal_list[i][0], value?'red':'grey');
