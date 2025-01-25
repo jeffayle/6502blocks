@@ -180,13 +180,14 @@ void
 step(void *state)
 {
 	BOOL clk = isNodeHigh(state, clk0);
+    BOOL read = isNodeHigh(state, rw);
 
 	/* invert clock */
 	setNode(state, clk0, !clk);
 	recalcNodeList(state);
 
 	/* handle memory reads and writes */
-	if (!clk)
+	if (!clk || read)
 		handleMemory(state);
 
 	cycle++;
