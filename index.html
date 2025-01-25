@@ -126,6 +126,8 @@
   var proc;
   var svg_doc
   var simulator;
+  var history = [];
+  var history_forward = [];
 
   function $(x) {
     return document.getElementById(x);
@@ -133,6 +135,28 @@
 
   function single_step() {
     simulator.step(proc);
+    let state = signal_list.map(function(signal){
+      let [name, nodes, type] = signal;
+      if (type==BIT || type==BIT_INV) {
+        let value = true;
+        if (nodes.constructor !== Array)
+          nodes = [nodes];
+        for (let i=0; i<nodes.length; i++)
+          value &= simulator.readNode(proc, nodes[i]);
+        if (type == BIT_INV)
+          value = !value;
+        return value;
+      } else if (type==BYTE_ || type==BYTE_INV) {
+        let value = simulator.readNode8.apply(null, [proc].concat(nodes));
+        if (type == BYTE_INV)
+          value ^= 255;
+        return value;
+      }
+    });
+    update_diagram(state);
+  }
+
+  function update_diagram(state) {
     function set_bit(cls, value) {
       let matches = svg_doc.getElementsByClassName(cls);
       for (let i=0; i<matches.length; i++) {
@@ -156,25 +180,11 @@
         matches[i].value = value;
     }
     for (let i=0; i<signal_list.length; i++) {
-      let type = signal_list[i][2];
-      if (type==BIT || type==BIT_INV) {
-        let nodes = signal_list[i][1];
-        let value = true;
-        if (nodes.constructor !== Array)
-          nodes = [nodes];
-        for (let i=0; i<nodes.length; i++)
-          value &= simulator.readNode(proc, nodes[i]);
-        if (type == BIT_INV)
-          value = !value;
-        set_bit(signal_list[i][0], value);
-      } else if (type==BYTE_ || type==BYTE_INV) {
-        let value = simulator.readNode8.apply(null,
-            [proc].concat(signal_list[i][1]));
-        if (type == BYTE_)
-          set_register(signal_list[i][0], value);
-        else if (type == BYTE_INV)
-          set_register(signal_list[i][0], value^255);
-      }
+      let [name, nodes, type] = signal_list[i];
+      if (type==BIT || type==BIT_INV)
+        set_bit(name, state[i]);
+      else if (type==BYTE_ || type==BYTE_INV)
+        set_register(name, state[i]);
     }
   }
 
@@ -198,9 +208,10 @@
 </script>
 
 <style type="text/css">
-  #view input[type=button] {
+  #controls {
     position: fixed;
     top: 0; left: 0;
+    z-index: 10;
   }
   #view { position: relative; }
   #view input[type=text] {
@@ -222,7 +233,10 @@
 </style>
 
 <section id=view>
-  <input type=button value=step id=step_button>
+  <section id=controls>
+    <input type=button value=step id=step_button>
+    <input type=button value=back id=back_button>
+  </section>
   <object id="diagram" data="6502block.svg" type="image/svg+xml">
   </object>
   <input type=text readonly class=ir style="left: 55px; top: 374px;">
