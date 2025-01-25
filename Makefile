@@ -4,7 +4,10 @@ LDFLAGS=--target=wasm32 -nostdlib \
     -Wl,--export=initAndResetChip \
     -Wl,--export=step \
     -Wl,--export=readNode \
-    -Wl,--export=readNode8
+    -Wl,--export=readNode8 \
+	-Wl,--export=readAddressBus \
+	-Wl,--export=readDataBus \
+	-Wl,--export=writeDataBus
 CC=clang
 
 6502.wasm: apple1basic.o netlist_sim.o perfect6502.o libc.o

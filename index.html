@@ -126,8 +126,17 @@
   var proc;
   var svg_doc
   var simulator;
+  const memory = new Uint8Array(2**16);
   var history = [];
   var history_forward = [];
+
+  /* initial memory */
+  memory[0xfffc] = 0x00;
+  memory[0xfffd] = 0x02;
+  memory[0x0200] = 0xa9;
+  memory[0x0201] = 0x05;
+  memory[0x0202] = 0xa9;
+  memory[0x0203] = 0x7;
 
   function $(x) {
     return document.getElementById(x);
@@ -140,6 +149,14 @@
       update_diagram(state);
     } else {
       simulator.step(proc);
+      /* handle memory */
+      if (simulator.readNode(proc, 1156)) {
+        /* read operation */
+        let addr = simulator.readAddressBus(proc);
+        simulator.writeDataBus(proc, memory[addr]);
+      } else if (simulator.readNode(proc, 421)) {
+        /* TODO write operation */
+      }
       let state = signal_list.map(function(signal){
         let [name, nodes, type] = signal;
         if (type==BIT || type==BIT_INV) {

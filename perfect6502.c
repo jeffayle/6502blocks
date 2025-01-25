@@ -141,35 +141,6 @@ readNode8(void *state, int n0, int n1, int n2, int n3, int n4, int n5, int n6, i
 
 /************************************************************
  *
- * Address Bus and Data Bus Interface
- *
- ************************************************************/
-
-uint8_t memory[65536];
-
-static uint8_t
-mRead(uint16_t a)
-{
-	return memory[a];
-}
-
-static void
-mWrite(uint16_t a, uint8_t d)
-{
-	memory[a] = d;
-}
-
-static inline void
-handleMemory(void *state)
-{
-	if (isNodeHigh(state, rw))
-		writeDataBus(state, mRead(readAddressBus(state)));
-	else
-		mWrite(readAddressBus(state), readDataBus(state));
-}
-
-/************************************************************
- *
  * Main Clock Loop
  *
  ************************************************************/
@@ -185,11 +156,6 @@ step(void *state)
 	/* invert clock */
 	setNode(state, clk0, !clk);
 	recalcNodeList(state);
-
-	/* handle memory reads and writes */
-	if (!clk || read)
-		handleMemory(state);
-
 	cycle++;
 }
 
@@ -224,14 +190,6 @@ initAndResetChip()
 	recalcNodeList(state);
 
 	cycle = 0;
-    /* program */
-	memory[0xfffc] = 0x00;
-	memory[0xfffd] = 0xE0;
-    memory[0xe000] = 0xa9;
-    memory[0xe001] = 0x01;
-    memory[0xe002] = 0xa9;
-    memory[0xe003] = 0x2;
-
 	return state;
 }
 
