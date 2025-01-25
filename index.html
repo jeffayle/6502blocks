@@ -134,26 +134,42 @@
   }
 
   function single_step() {
-    simulator.step(proc);
-    let state = signal_list.map(function(signal){
-      let [name, nodes, type] = signal;
-      if (type==BIT || type==BIT_INV) {
-        let value = true;
-        if (nodes.constructor !== Array)
-          nodes = [nodes];
-        for (let i=0; i<nodes.length; i++)
-          value &= simulator.readNode(proc, nodes[i]);
-        if (type == BIT_INV)
-          value = !value;
-        return value;
-      } else if (type==BYTE_ || type==BYTE_INV) {
-        let value = simulator.readNode8.apply(null, [proc].concat(nodes));
-        if (type == BYTE_INV)
-          value ^= 255;
-        return value;
-      }
-    });
-    update_diagram(state);
+    if (history_forward.length > 0) {
+      let state = history_forward.pop();
+      history.push(state);
+      update_diagram(state);
+    } else {
+      simulator.step(proc);
+      let state = signal_list.map(function(signal){
+        let [name, nodes, type] = signal;
+        if (type==BIT || type==BIT_INV) {
+          let value = true;
+          if (nodes.constructor !== Array)
+            nodes = [nodes];
+          for (let i=0; i<nodes.length; i++)
+            value &= simulator.readNode(proc, nodes[i]);
+          if (type == BIT_INV)
+            value = !value;
+          return value;
+        } else if (type==BYTE_ || type==BYTE_INV) {
+          let value = simulator.readNode8.apply(null, [proc].concat(nodes));
+          if (type == BYTE_INV)
+            value ^= 255;
+          return value;
+        }
+      });
+      update_diagram(state);
+      history.push(state);
+      if (history.length > 10)
+        history.shift();
+    }
+  }
+
+  function step_back() {
+    if (history.length == 0)
+      return;
+    history_forward.push(history.pop());
+    update_diagram(history[history.length-1]);
   }
 
   function update_diagram(state) {
@@ -196,8 +212,8 @@
     simulator = instance.exports;
     proc = simulator.initAndResetChip();
     console.log(proc);
-    $("step_button").addEventListener(
-        "click", single_step);
+    $("step_button").addEventListener("click", single_step);
+    $("back_button").addEventListener("click", step_back);
   }
   init();
 
