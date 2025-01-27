@@ -152,13 +152,15 @@ self.onmessage = function(event) {
 
 function single_step() {
   simulator.step(proc);
+  let addr = simulator.readAddressBus(proc);
   /* handle memory */
   if (simulator.readNode(proc, 1156)) {
     /* read operation */
-    let addr = simulator.readAddressBus(proc);
     simulator.writeDataBus(proc, memory[addr]);
   } else if (simulator.readNode(proc, 421)) {
-    /* TODO write operation */
+    memory[addr] = simulator.readDataBus(proc);
+    console.log(addr.toString(16) + " = " +
+    simulator.readDataBus(proc).toString(16));
   }
   return signal_list.map(function(signal){
     let [name, nodes, type] = signal;
