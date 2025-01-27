@@ -145,6 +145,8 @@ self.onmessage = function(event) {
   let param = event.data[1];
   if (message == "step") {
     self.postMessage([message, single_step()]);
+  } else if (message == "run") {
+    setInterval(function(){self.postMessage(["step", single_step()])}, 0);
   }
 }
 

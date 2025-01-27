@@ -87,6 +87,9 @@
     svg_doc = $("diagram").getElementsByTagName("object")[0].contentDocument;
     $("step_button").addEventListener("click", single_step);
     $("back_button").addEventListener("click", step_back);
+    $("run_button").addEventListener("click", function(){
+      simulator.postMessage(["run", null]);
+    });
   });
   
 </script>
@@ -127,7 +130,8 @@
 
 <div id=controls>
   <input type=button value=step id=step_button><!--
-  --><input type=button value=back id=back_button disabled>
+  --><input type=button value=back id=back_button disabled><!--
+  --><input type=button value=run id=run_button>
 </div>
 
 <input type=radio name=tab id=tab_processor checked>
