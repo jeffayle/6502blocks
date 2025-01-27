@@ -80,10 +80,13 @@
     ["n0_v", 587, BIT],
     ["db_p", 781, BIT],
     ["write", 1156, BIT_INV],
+    ["read", 1156, BIT],
     ["RW", 1156, BIT],
     ["pclc", 1704, BIT],
     ["clk1_adl_abl", [1163,639], BIT],
     ["clk1_adh_abh", [1163,821], BIT],
+    ["load_ir", [879,1163], BIT],
+    ["assert_interrupt_control", 827, BIT_INV],
     /* transfers */
     ["pcl_abl", [438,1163,639], BIT],
     ["pch_abh", [1235,1163,821], BIT],
@@ -103,6 +106,14 @@
     ["n01_abh", [203,1163,821], BIT],
     ["s_abl", [1468,1163,639], BIT],
     ["pch_dor", [247,1163], BIT],
+    ["pd_ir", [827, 879, 1163], BIT],
+    ["bus_write", [-1156,421], BIT],
+    ["bus_read", [1156,421], BIT],
+    ["sum_add", [921,421], BIT],
+    ["and_add", [574,421], BIT],
+    ["eor_add", [1666,421], BIT],
+    ["or_add", [59,421], BIT],
+    ["sr_add", [362,421], BIT],
     /* registers */
     ["ir", [194,702,1182,1125,26,1394,895,1320], BYTE_INV],
     ["DB", [1005,82,945,650,1393,175,1591,1349], BYTE_],
@@ -164,7 +175,10 @@
           if (nodes.constructor !== Array)
             nodes = [nodes];
           for (let i=0; i<nodes.length; i++)
-            value &= simulator.readNode(proc, nodes[i]);
+            if (nodes[i] >= 0)
+              value &= simulator.readNode(proc, nodes[i]);
+            else
+              value &= !simulator.readNode(proc, -nodes[i]);
           if (type == BIT_INV)
             value = !value;
           return value;
