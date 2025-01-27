@@ -138,14 +138,6 @@ var proc;
 var simulator;
 const memory = new Uint8Array(2**16);
 
-/* initial memory */
-memory[0xfffc] = 0x00;
-memory[0xfffd] = 0x02;
-memory[0x0200] = 0xa9;
-memory[0x0201] = 0x05;
-memory[0x0202] = 0xa9;
-memory[0x0203] = 0x7;
-
 self.postMessage(["init", signal_list.map(function(x){return [x[0],x[2]];})])
 
 self.onmessage = function(event) {
@@ -189,8 +181,13 @@ function single_step() {
   });
 }
 
-/* load wasm */
 (async function() {
+  /* load memory image */
+  const memory_response = await fetch("testsuite.bin");
+  const new_memory = new Uint8Array(await memory_response.arrayBuffer());
+  for (let i=0; i<65536; i++)
+    memory[i] = new_memory[i];
+  /* load wasm */
   const { instance } = await WebAssembly.instantiateStreaming(
     fetch("./6502.wasm")
   );

@@ -92,7 +92,7 @@
 </script>
 
 <style type="text/css">
-  #diagram > #controls {
+  #controls {
     position: sticky;
     top: 8px; left: 0;
     z-index: 10;
@@ -122,7 +122,13 @@
   .tab_content { display: none; }
   input[name=tab] { display: none; }
   #tab_processor:checked ~ #diagram { display: block; }
+  #tab_io:checked ~ #io { display: block; }
 </style>
+
+<div id=controls>
+  <input type=button value=step id=step_button><!--
+  --><input type=button value=back id=back_button disabled>
+</div>
 
 <input type=radio name=tab id=tab_processor checked>
 <label for=tab_processor> Processor </label>
@@ -130,10 +136,6 @@
 <label for=tab_io> I/O </label>
 
 <section id=diagram class=tab_content>
-  <div id=controls>
-    <input type=button value=step id=step_button><!--
-    --><input type=button value=back id=back_button disabled>
-  </div>
   <div>
   <object data="6502block.svg" type="image/svg+xml"></object>
   <input type=text readonly class=ir style="left: 55px; top: 374px;">
@@ -155,4 +157,9 @@
   <input type=text readonly class=y style="left: 680px; top: 940px;">
   </div>
   <input type=text readonly class=ac style="left: 459px; top: 981px;">
+</section>
+
+<section id=io class=tab_content>
+  <pre></pre>
+  <input type=text placeholder="keyboard input">
 </section>
