@@ -67,7 +67,7 @@
       }
     }
     function set_register(cls, value) {
-      let matches = $("view").getElementsByClassName(cls);
+      let matches = $("diagram").getElementsByClassName(cls);
       value = value.toString(16);
       if (value.length < 2)
         value = "0" + value;
@@ -84,7 +84,7 @@
   }
 
   window.addEventListener("load", function() {
-    svg_doc = $("diagram").contentDocument;
+    svg_doc = $("diagram").getElementsByTagName("object")[0].contentDocument;
     $("step_button").addEventListener("click", single_step);
     $("back_button").addEventListener("click", step_back);
   });
@@ -93,12 +93,12 @@
 
 <style type="text/css">
   #controls {
-    position: fixed;
+    position: sticky;
     top: 0; left: 0;
     z-index: 10;
   }
-  #view { position: relative; }
-  #view input[type=text] {
+  #diagram { position: relative; }
+  #diagram input[type=text] {
     position: absolute;
     font-size: 16px;
     width: 32px;
@@ -106,11 +106,11 @@
     background-color: #ff9;
     text-align: center;
   }
-  #view input[type=text].small {
+  #diagram input[type=text].small {
     font-size: 12px;
     width: 24px;
   }
-  #view input[type=text].tiny {
+  #diagram input[type=text].tiny {
     font-size: 8px;
     width: 16px;
   }
@@ -121,24 +121,26 @@
     <input type=button value=step id=step_button><!--
     --><input type=button value=back id=back_button disabled>
   </section>
-  <object id="diagram" data="6502block.svg" type="image/svg+xml">
-  </object>
-  <input type=text readonly class=ir style="left: 55px; top: 374px;">
-  <input type=text readonly class=DB style="left: 247px; top: 70px;">
-  <input type=text readonly class="pd tiny" style="left: 181px; top: 164px;">
-  <input type=text readonly class="dor small" style="left: 250px; top: 279px;">
-  <input type=text readonly class=pd style="left: 332px; top: 150px;">
-  <input type=text readonly class="pcls small" style="left: 403px; top: 224px;">
-  <input type=text readonly class=pcl style="left: 403px; top: 339px;">
-  <input type=text readonly class=pchs style="left: 547px; top: 222px;">
-  <input type=text readonly class=pch style="left: 550px; top: 377px;">
-  <input type=text readonly class=abh style="left: 679px; top: 367px;">
-  <input type=text readonly class=abl style="left: 677px; top: 636px;">
-  <input type=text readonly class=s style="left: 540px; top: 533px;">
-  <input type=text readonly class="ai small" style="left: 425px; top: 800px;">
-  <input type=text readonly class="bi small" style="left: 425px; top: 589px;">
-  <input type=text readonly class="add small" style="left: 541px; top: 715px;">
-  <input type=text readonly class=x style="left: 680px; top: 781px;">
-  <input type=text readonly class=y style="left: 680px; top: 940px;">
-  <input type=text readonly class=ac style="left: 459px; top: 981px;">
+  <section id=diagram>
+    <object data="6502block.svg" type="image/svg+xml">
+    </object>
+    <input type=text readonly class=ir style="left: 55px; top: 374px;">
+    <input type=text readonly class=DB style="left: 247px; top: 70px;">
+    <input type=text readonly class="pd tiny" style="left: 181px; top: 164px;">
+    <input type=text readonly class="dor small" style="left: 250px; top: 279px;">
+    <input type=text readonly class=pd style="left: 332px; top: 150px;">
+    <input type=text readonly class="pcls small" style="left: 403px; top: 224px;">
+    <input type=text readonly class=pcl style="left: 403px; top: 339px;">
+    <input type=text readonly class=pchs style="left: 547px; top: 222px;">
+    <input type=text readonly class=pch style="left: 550px; top: 377px;">
+    <input type=text readonly class=abh style="left: 679px; top: 367px;">
+    <input type=text readonly class=abl style="left: 677px; top: 636px;">
+    <input type=text readonly class=s style="left: 540px; top: 533px;">
+    <input type=text readonly class="ai small" style="left: 425px; top: 800px;">
+    <input type=text readonly class="bi small" style="left: 425px; top: 589px;">
+    <input type=text readonly class="add small" style="left: 541px; top: 715px;">
+    <input type=text readonly class=x style="left: 680px; top: 781px;">
+    <input type=text readonly class=y style="left: 680px; top: 940px;">
+    <input type=text readonly class=ac style="left: 459px; top: 981px;">
+  </section>
 </section>
