@@ -25,6 +25,7 @@
         history.push(param);
         if (history.length > 10)
           history.shift();
+        $("back_button").disabled = false;
       } else {
         history_forward.unshift(param);
       }
@@ -45,6 +46,8 @@
     if (history.length == 0)
       return;
     history_forward.push(history.pop());
+    if (history.length == 0)
+      $("back_button").disabled = true;
     update_diagram(history[history.length-1]);
   }
 
@@ -115,8 +118,8 @@
 
 <section id=view>
   <section id=controls>
-    <input type=button value=step id=step_button>
-    <input type=button value=back id=back_button>
+    <input type=button value=step id=step_button><!--
+    --><input type=button value=back id=back_button disabled>
   </section>
   <object id="diagram" data="6502block.svg" type="image/svg+xml">
   </object>
