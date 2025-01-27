@@ -140,6 +140,7 @@
   const memory = new Uint8Array(2**16);
   var history = [];
   var history_forward = [];
+  var autoplay_count = 0;
 
   /* initial memory */
   memory[0xfffc] = 0x00;
@@ -196,6 +197,14 @@
     }
   }
 
+  function autoplay() {
+    single_step();
+    autoplay_count--;
+    if (autoplay_count > 0)
+      //requestAnimationFrame(autoplay);
+      setTimeout(autoplay, 100);
+  }
+
   function step_back() {
     if (history.length == 0)
       return;
@@ -245,6 +254,8 @@
     console.log(proc);
     $("step_button").addEventListener("click", single_step);
     $("back_button").addEventListener("click", step_back);
+    autoplay_count = 16;
+    autoplay();
   }
   init();
 
