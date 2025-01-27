@@ -20,10 +20,14 @@
     if (message == "init") {
       signal_list = param;
     } else if (message == "step") {
-      update_diagram(param);
-      history.push(param);
-      if (history.length > 10)
-        history.shift();
+      if (history_forward.length == 0) {
+        update_diagram(param);
+        history.push(param);
+        if (history.length > 10)
+          history.shift();
+      } else {
+        history_forward.unshift(param);
+      }
     }
   }
 
