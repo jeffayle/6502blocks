@@ -90,6 +90,29 @@
     $("run_button").addEventListener("click", function(){
       simulator.postMessage(["run", null]);
     });
+    /* RAM table */
+    let table = $("ram").getElementsByTagName("table")[0];
+    let table_body = document.createElement("tbody");
+    table.appendChild(table_body);
+    let table_row = null;
+    for (let i=0; i<65536; i++) {
+      if (i % 16 == 0) {
+        if (table_row)
+          table_body.appendChild(table_row);
+        table_row = document.createElement("tr");
+        let header = document.createElement("th");
+        header.innerHTML = (i/16).toString(16) + "x";
+        table_row.appendChild(header);
+      }
+      if (i % 256 == 0) {
+        table.appendChild(table_body);
+        table_body = document.createElement("tbody");
+        table.appendChild(table_body);
+      }
+      let cell = document.createElement("td");
+      cell.innerHTML = "00";
+      table_row.appendChild(cell);
+    }
   });
   
 </script>
@@ -126,6 +149,11 @@
   input[name=tab] { display: none; }
   #tab_processor:checked ~ #diagram { display: block; }
   #tab_io:checked ~ #io { display: block; }
+  #tab_ram:checked ~ #ram { display: block; }
+
+  tbody:nth-child(even) {
+    background-color: #ccc;
+  }
 </style>
 
 <div id=controls>
@@ -138,6 +166,8 @@
 <label for=tab_processor> Processor </label>
 <input type=radio name=tab id=tab_io>
 <label for=tab_io> I/O </label>
+<input type=radio name=tab id=tab_ram>
+<label for=tab_ram>RAM</label>
 
 <section id=diagram class=tab_content>
   <div>
@@ -166,4 +196,20 @@
 <section id=io class=tab_content>
   <pre></pre>
   <input type=text placeholder="keyboard input">
+</section>
+
+<section id=ram class=tab_content>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <td>0</td> <td>1</td> <td>2</td> <td>3</td>
+        <td>4</td> <td>5</td> <td>6</td> <td>7</td>
+        <td>8</td> <td>9</td> <td>a</td> <td>b</td>
+        <td>c</td> <td>d</td> <td>e</td> <td>f</td>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
 </section>
