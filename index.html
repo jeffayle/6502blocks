@@ -86,6 +86,7 @@
   async function load_ram(fname) {
     const memory_response = await fetch(fname);
     const new_memory = new Uint8Array(await memory_response.arrayBuffer());
+    simulator.postMessage(["init", new_memory]);
     /* RAM table */
     let table = $("ram").getElementsByTagName("table")[0];
     let table_body = document.createElement("tbody");

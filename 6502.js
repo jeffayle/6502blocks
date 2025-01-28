@@ -146,6 +146,14 @@ self.onmessage = function(event) {
     self.postMessage([message, single_step()]);
   } else if (message == "run") {
     setInterval(function(){self.postMessage(["step", single_step()])}, 0);
+  } else if (message == "init") {
+    console.log("init from worker");
+    /* load memory image */
+    for (let i=0; i<65536; i++)
+      memory[i] = param[i];
+    /* autoplay through reset sequence */
+    for (let i=0; i<16; i++)
+      self.postMessage(["step", single_step()]);
   }
 }
 
@@ -185,18 +193,10 @@ function single_step() {
 }
 
 (async function() {
-  /* load memory image */
-  const memory_response = await fetch("testsuite.bin");
-  const new_memory = new Uint8Array(await memory_response.arrayBuffer());
-  for (let i=0; i<65536; i++)
-    memory[i] = new_memory[i];
   /* load wasm */
   const { instance } = await WebAssembly.instantiateStreaming(
     fetch("./6502.wasm")
   );
   simulator = instance.exports;
   simulator.initAndResetChip();
-  /* autoplay through reset sequence */
-  for (let i=0; i<16; i++)
-    self.postMessage(["step", single_step()]);
 })();
