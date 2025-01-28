@@ -134,7 +134,6 @@ const signal_list = [
   ["ac", [737,1234,978,162,727,858,1136,1653], BYTE_]
 ];
 
-var proc;
 var simulator;
 const memory = new Uint8Array(2**16);
 
@@ -151,16 +150,16 @@ self.onmessage = function(event) {
 }
 
 function single_step() {
-  simulator.step(proc);
-  let addr = simulator.readAddressBus(proc);
+  simulator.step();
+  let addr = simulator.readAddressBus();
   /* handle memory */
-  if (simulator.readNode(proc, 1156)) {
+  if (simulator.readNode(1156)) {
     /* read operation */
-    simulator.writeDataBus(proc, memory[addr]);
-  } else if (simulator.readNode(proc, 421)) {
-    memory[addr] = simulator.readDataBus(proc);
+    simulator.writeDataBus(memory[addr]);
+  } else if (simulator.readNode(421)) {
+    memory[addr] = simulator.readDataBus();
     console.log(addr.toString(16) + " = " +
-    simulator.readDataBus(proc).toString(16));
+    simulator.readDataBus().toString(16));
   }
   return signal_list.map(function(signal){
     let [name, nodes, type] = signal;
@@ -170,14 +169,14 @@ function single_step() {
         nodes = [nodes];
       for (let i=0; i<nodes.length; i++)
         if (nodes[i] >= 0)
-          value &= simulator.readNode(proc, nodes[i]);
+          value &= simulator.readNode(nodes[i]);
         else
-          value &= !simulator.readNode(proc, -nodes[i]);
+          value &= !simulator.readNode(-nodes[i]);
       if (type == BIT_INV)
         value = !value;
       return value;
     } else if (type==BYTE_ || type==BYTE_INV) {
-      let value = simulator.readNode8.apply(null, [proc].concat(nodes));
+      let value = simulator.readNode8.apply(null, nodes);
       if (type == BYTE_INV)
         value ^= 255;
       return value;
@@ -196,8 +195,7 @@ function single_step() {
     fetch("./6502.wasm")
   );
   simulator = instance.exports;
-  proc = simulator.initAndResetChip();
-  console.log(proc);
+  simulator.initAndResetChip();
   /* autoplay through reset sequence */
   for (let i=0; i<16; i++)
     self.postMessage(["step", single_step()]);
