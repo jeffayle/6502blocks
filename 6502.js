@@ -135,6 +135,8 @@ const signal_list = [
 ];
 
 var simulator;
+var autoplay = null;
+var bp_state = null;
 const memory = new Uint8Array(2**16);
 
 self.postMessage(["init", signal_list.map(function(x){return [x[0],x[2]];})])
@@ -145,15 +147,28 @@ self.onmessage = function(event) {
   if (message == "step") {
     self.postMessage([message, single_step()]);
   } else if (message == "run") {
-    setInterval(function(){self.postMessage(["step", single_step()])}, 0);
+    run(param);
   } else if (message == "init") {
-    console.log("init from worker");
     /* load memory image */
     for (let i=0; i<65536; i++)
       memory[i] = param[i];
-    /* autoplay through reset sequence */
-    for (let i=0; i<16; i++)
-      self.postMessage(["step", single_step()]);
+  }
+}
+
+function run(bp_state_) {
+  if (autoplay === null) {
+    bp_state = bp_state_;
+    autoplay = setInterval(run, 0);
+    return;
+  }
+  let new_state = single_step();
+  self.postMessage(["step", new_state]);
+  for (let i=0; i<bp_state.length; i++) {
+    if (new_state[bp_state[i]]) {
+      clearInterval(autoplay);
+      autoplay = null;
+      break;
+    }
   }
 }
 
@@ -166,8 +181,7 @@ function single_step() {
     simulator.writeDataBus(memory[addr]);
   } else if (simulator.readNode(421)) {
     memory[addr] = simulator.readDataBus();
-    console.log(addr.toString(16) + " = " +
-    simulator.readDataBus().toString(16));
+    simulator.readDataBus().toString(16);
   }
   return signal_list.map(function(signal){
     let [name, nodes, type] = signal;
