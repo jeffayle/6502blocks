@@ -83,13 +83,9 @@
     }
   }
 
-  window.addEventListener("load", function() {
-    svg_doc = $("diagram").getElementsByTagName("object")[0].contentDocument;
-    $("step_button").addEventListener("click", single_step);
-    $("back_button").addEventListener("click", step_back);
-    $("run_button").addEventListener("click", function(){
-      simulator.postMessage(["run", null]);
-    });
+  async function load_ram(fname) {
+    const memory_response = await fetch(fname);
+    const new_memory = new Uint8Array(await memory_response.arrayBuffer());
     /* RAM table */
     let table = $("ram").getElementsByTagName("table")[0];
     let table_body = document.createElement("tbody");
@@ -110,9 +106,22 @@
         table.appendChild(table_body);
       }
       let cell = document.createElement("td");
-      cell.innerHTML = "00";
+      let value = new_memory[i].toString(16);
+      if (new_memory[i] < 0x10)
+        value = "0" + value;
+      cell.innerHTML = value;
       table_row.appendChild(cell);
     }
+  }
+
+  window.addEventListener("load", function() {
+    svg_doc = $("diagram").getElementsByTagName("object")[0].contentDocument;
+    $("step_button").addEventListener("click", single_step);
+    $("back_button").addEventListener("click", step_back);
+    $("run_button").addEventListener("click", function(){
+      simulator.postMessage(["run", null]);
+    });
+    load_ram("testsuite.bin");
   });
   
 </script>
