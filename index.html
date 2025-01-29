@@ -23,11 +23,11 @@
     $("reset_button").addEventListener("click", function(){
       simulator.postMessage(["reset", []]);
     });
-    $("ram").getElementsByTagName("select")[0].addEventListener("change",
-        function() {
-          load_ram(this.value);
-        });
-    load_ram("testsuite.bin");
+    let ram_select = $("ram").getElementsByTagName("select")[0];
+    ram_select.addEventListener("change", function() {
+      load_ram(this.value);
+    });
+    load_ram(ram_select.value);
     simulator.onmessage = simulator_onmessage;
   });
 
