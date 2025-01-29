@@ -164,7 +164,8 @@ function run(bp_state_) {
   let new_state = single_step();
   self.postMessage(["step", new_state]);
   for (let i=0; i<bp_state.length; i++) {
-    if (new_state[bp_state[i]]) {
+    let bp = bp_state[i];
+    if ((bp>=0 && new_state[bp]) || (bp<0 && !new_state[-bp])) {
       clearInterval(autoplay);
       autoplay = null;
       break;
