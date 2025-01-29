@@ -116,7 +116,12 @@
           table_body.appendChild(table_row);
         table_row = document.createElement("tr");
         let header = document.createElement("th");
-        header.innerHTML = (i/16).toString(16) + "x";
+        let fmt = (i/16).toString(16) + "x";
+        if (i < 0x100)
+          null; /* no padding on zero page address */
+        else if (i < 0x1000)
+          fmt = "0" + fmt;
+        header.innerHTML = fmt;
         table_row.appendChild(header);
       }
       if (i % 256 == 0) {
@@ -221,8 +226,16 @@
     width: 16px;
   }
 
+  input[name=tab] + label {
+    color: blue;
+    text-decoration: underline;
+    margin-right: 0.25em;
+    cursor: pointer;
+  }
   input[name=tab]:checked + label {
-    background-color: red;
+    color: black;
+    text-decoration: none;
+    cursor: default;
   }
 
   .tab_content { display: none; }
@@ -245,6 +258,12 @@
   #ram table input {
     width: 3em;
   }
+  #ram table th {
+    text-align: right;
+  }
+  #ram table td {
+    text-align: center;
+  }
 </style>
 
 <div id=controls>
@@ -255,9 +274,9 @@
 </div>
 
 <input type=radio name=tab id=tab_processor checked>
-<label for=tab_processor> Processor </label>
+<label for=tab_processor>Processor</label>
 <input type=radio name=tab id=tab_io>
-<label for=tab_io> I/O </label>
+<label for=tab_io>I/O</label>
 <input type=radio name=tab id=tab_ram>
 <label for=tab_ram>RAM</label>
 
