@@ -152,6 +152,13 @@ self.onmessage = function(event) {
     /* load memory image */
     for (let i=0; i<65536; i++)
       memory[i] = param[i];
+  } else if (message == "reset") {
+    simulator.writeNode(159, 0);
+    for (let i=0; i<16; i++)
+      self.postMessage(["step", single_step()]);
+    simulator.writeNode(159, 1);
+    for (let i=0; i<16; i++)
+      self.postMessage(["step", single_step()]);
   }
 }
 

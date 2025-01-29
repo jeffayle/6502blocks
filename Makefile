@@ -5,6 +5,7 @@ LDFLAGS=--target=wasm32 -nostdlib \
     -Wl,--export=step \
     -Wl,--export=readNode \
     -Wl,--export=readNode8 \
+	-Wl,--export=writeNode \
 	-Wl,--export=readAddressBus \
 	-Wl,--export=readDataBus \
 	-Wl,--export=writeDataBus

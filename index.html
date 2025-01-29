@@ -18,7 +18,10 @@
     $("step_button").addEventListener("click", single_step);
     $("back_button").addEventListener("click", step_back);
     $("run_button").addEventListener("click", function(){
-      simulator.postMessage(["run", [signal_id("t1")]]);
+      simulator.postMessage(["run", []]);
+    });
+    $("reset_button").addEventListener("click", function(){
+      simulator.postMessage(["reset", []]);
     });
     load_ram("testsuite.bin");
     simulator.onmessage = simulator_onmessage;
@@ -101,6 +104,7 @@
     const memory_response = await fetch(fname);
     const new_memory = new Uint8Array(await memory_response.arrayBuffer());
     simulator.postMessage(["init", new_memory]);
+    simulator.postMessage(["reset", []]);
     /* RAM table */
     let table = $("ram").getElementsByTagName("table")[0];
     let table_body = document.createElement("tbody");
@@ -205,7 +209,8 @@
 <div id=controls>
   <input type=button value=step id=step_button><!--
   --><input type=button value=back id=back_button disabled><!--
-  --><input type=button value=run id=run_button>
+  --><input type=button value=run id=run_button><!--
+  --><input type=button value=reset id=reset_button>
 </div>
 
 <input type=radio name=tab id=tab_processor checked>

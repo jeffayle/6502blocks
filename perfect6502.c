@@ -57,6 +57,10 @@ readNode(int n)
     return isNodeHigh(state, n);
 }
 
+void writeNode(int n, int value) {
+    writeNodes(state, 1, (nodenum_t[]){n}, value?1:0);
+}
+
 uint8_t
 readNode8(int n0, int n1, int n2, int n3, int n4, int n5, int n6, int n7)
 {
@@ -96,7 +100,7 @@ initAndResetChip(void)
 										   vss,
 										   vcc);
 
-	setNode(state, res, 0);
+	setNode(state, res, 1);
 	setNode(state, clk0, 1);
 	setNode(state, rdy, 1);
 	setNode(state, so, 0);
@@ -104,14 +108,5 @@ initAndResetChip(void)
 	setNode(state, nmi, 1);
 
 	stabilizeChip(state);
-
-	/* hold RESET for 8 cycles */
-	for (int i = 0; i < 16; i++)
-		step();
-
-	/* release RESET */
-	setNode(state, res, 1);
-	recalcNodeList(state);
-
 	cycle = 0;
 }
