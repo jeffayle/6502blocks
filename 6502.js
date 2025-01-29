@@ -159,6 +159,9 @@ self.onmessage = function(event) {
       memory[i] = param[i];
   } else if (message == "reset") {
     reset();
+  } else if (message == "write") {
+    let [addr, new_value] = param;
+    memory[addr] = new_value;
   }
 }
 

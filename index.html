@@ -146,7 +146,9 @@
           let new_value = parseInt(this.value,16);
           if (isNaN(new_value) || new_value<0 || new_value>255)
             new_value = old_value;
-          if (value < 0x10)
+          else
+            simulator.postMessage(["write", [i, new_value]]);
+          if (new_value < 0x10)
             new_value = "0" + new_value.toString(16);
           else
             new_value = new_value.toString(16);
