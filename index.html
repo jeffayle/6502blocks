@@ -23,6 +23,10 @@
     $("reset_button").addEventListener("click", function(){
       simulator.postMessage(["reset", []]);
     });
+    $("ram").getElementsByTagName("select")[0].addEventListener("change",
+        function() {
+          load_ram(this.value);
+        });
     load_ram("testsuite.bin");
     simulator.onmessage = simulator_onmessage;
   });
@@ -101,12 +105,19 @@
   }
 
   async function load_ram(fname) {
+    /* remove old ram table */
+    let table = $("ram").getElementsByTagName("table")[0];
+    let bodies = table.getElementsByTagName("tbody");
+    while (bodies.length > 0)
+      table.removeChild(bodies[0]);
+    if (bodies.length > 2)
+      return
+    /* fetch new image */
     const memory_response = await fetch(fname);
     const new_memory = new Uint8Array(await memory_response.arrayBuffer());
     simulator.postMessage(["init", new_memory]);
     simulator.postMessage(["reset", []]);
     /* RAM table */
-    let table = $("ram").getElementsByTagName("table")[0];
     let table_body = document.createElement("tbody");
     table.appendChild(table_body);
     let table_row = null;
@@ -127,7 +138,6 @@
       if (i % 256 == 0) {
         table.appendChild(table_body);
         table_body = document.createElement("tbody");
-        table.appendChild(table_body);
       }
       if (i==new_memory.length) break; /* ensure final row is output */
       let cell = document.createElement("td");
@@ -310,6 +320,11 @@
 </section>
 
 <section id=ram class=tab_content>
+  Load memory contents from file:
+  <select>
+    <option value=zero.bin>Empty (4k)</option>
+    <option value=testsuite.bin>6502 Functional Test</option>
+  </select>
   <table>
     <thead>
       <tr>
