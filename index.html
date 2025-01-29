@@ -125,11 +125,38 @@
         table.appendChild(table_body);
       }
       let cell = document.createElement("td");
+      let container = document.createElement("div");
+      cell.appendChild(container);
       let value = new_memory[i].toString(16);
       if (new_memory[i] < 0x10)
         value = "0" + value;
-      cell.innerHTML = value;
+      container.innerHTML = value;
       table_row.appendChild(cell);
+      /* when cell is double clicked, turn div into input */
+      cell.addEventListener("dblclick", function(event) {
+        let old_value = this.firstChild.innerHTML;
+        this.removeChild(this.firstChild);
+        let input = document.createElement("input");
+        input.type = "text";
+        input.value = old_value;
+        this.appendChild(input);
+        input.focus();
+        /* turn back into a div */
+        input.addEventListener("focusout", function() {
+          let new_value = parseInt(this.value,16);
+          if (isNaN(new_value) || new_value<0 || new_value>255)
+            new_value = old_value;
+          if (value < 0x10)
+            new_value = "0" + new_value.toString(16);
+          else
+            new_value = new_value.toString(16);
+          let cell = this.parentNode;
+          let new_div = document.createElement("div");
+          new_div.innerHTML = new_value;
+          cell.removeChild(this);
+          cell.appendChild(new_div);
+        });
+      });
     }
   }
 
@@ -204,6 +231,16 @@
 
   tbody:nth-child(even) {
     background-color: #ccc;
+  }
+
+  #ram table {
+    font-family: monospace;
+  }
+  #ram table div {
+    width: 3em;
+  }
+  #ram table input {
+    width: 3em;
   }
 </style>
 
