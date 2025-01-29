@@ -147,7 +147,12 @@ self.onmessage = function(event) {
   if (message == "step") {
     self.postMessage([message, single_step()]);
   } else if (message == "run") {
-    run(param);
+    if (autoplay === null) {
+      run(param);
+    } else {
+      clearInterval(autoplay);
+      autoplay = null;
+    }
   } else if (message == "init") {
     /* load memory image */
     for (let i=0; i<65536; i++)
@@ -188,8 +193,8 @@ function single_step() {
     /* read operation */
     simulator.writeDataBus(memory[addr]);
   } else if (simulator.readNode(421)) {
+    /* write operation (only on clk2) */
     memory[addr] = simulator.readDataBus();
-    simulator.readDataBus().toString(16);
   }
   return signal_list.map(function(signal){
     let [name, nodes, type] = signal;
