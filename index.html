@@ -110,7 +110,7 @@
     let table_body = document.createElement("tbody");
     table.appendChild(table_body);
     let table_row = null;
-    for (let i=0; i<65536; i++) {
+    for (let i=0; i<=new_memory.length; i++) {
       if (i % 16 == 0) {
         if (table_row)
           table_body.appendChild(table_row);
@@ -124,6 +124,7 @@
         table_body = document.createElement("tbody");
         table.appendChild(table_body);
       }
+      if (i==new_memory.length) break; /* ensure final row is output */
       let cell = document.createElement("td");
       let container = document.createElement("div");
       cell.appendChild(container);

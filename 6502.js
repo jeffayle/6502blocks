@@ -137,7 +137,8 @@ const signal_list = [
 var simulator = null;
 var autoplay = null;
 var bp_state = null;
-const memory = new Uint8Array(2**16);
+let memory;
+let memory_mask = 0xffff;
 
 self.postMessage(["init", signal_list.map(function(x){return [x[0],x[2]];})])
 
@@ -155,8 +156,8 @@ self.onmessage = function(event) {
     }
   } else if (message == "init") {
     /* load memory image */
-    for (let i=0; i<65536; i++)
-      memory[i] = param[i];
+    memory = new Uint8Array(param);
+    memory_mask = memory.length - 1;
   } else if (message == "reset") {
     reset();
   } else if (message == "write") {
@@ -198,7 +199,7 @@ function run(bp_state_) {
 
 function single_step() {
   simulator.step();
-  let addr = simulator.readAddressBus();
+  let addr = simulator.readAddressBus() & memory_mask;
   /* handle memory */
   if (simulator.readNode(1156)) {
     /* read operation */
