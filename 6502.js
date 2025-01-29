@@ -134,7 +134,7 @@ const signal_list = [
   ["ac", [737,1234,978,162,727,858,1136,1653], BYTE_]
 ];
 
-var simulator;
+var simulator = null;
 var autoplay = null;
 var bp_state = null;
 const memory = new Uint8Array(2**16);
@@ -158,13 +158,21 @@ self.onmessage = function(event) {
     for (let i=0; i<65536; i++)
       memory[i] = param[i];
   } else if (message == "reset") {
-    simulator.writeNode(159, 0);
-    for (let i=0; i<16; i++)
-      self.postMessage(["step", single_step()]);
-    simulator.writeNode(159, 1);
-    for (let i=0; i<16; i++)
-      self.postMessage(["step", single_step()]);
+    reset();
   }
+}
+
+function reset() {
+  if (simulator === null) {
+    setTimeout(reset, 100);
+    return;
+  }
+  simulator.writeNode(159, 0);
+  for (let i=0; i<16; i++)
+    self.postMessage(["step", single_step()]);
+  simulator.writeNode(159, 1);
+  for (let i=0; i<16; i++)
+    self.postMessage(["step", single_step()]);
 }
 
 function run(bp_state_) {
