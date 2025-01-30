@@ -5,6 +5,11 @@ const BIT_INV = 1;
 const BYTE_ = 2;
 const BYTE_INV = 3;
 const signal_list = [
+  ["NMI", 1297, BIT],
+  ["IRQ", 103, BIT],
+  ["RES", 159, BIT],
+  ["READY", 89, BIT],
+  ["SV", 1672, BIT],
   ["clk1", 1163, BIT],
   ["clk2", 421, BIT],
   ["t0", 1536, BIT_INV],
@@ -97,6 +102,10 @@ const signal_list = [
   ["resp", 67, BIT],
   ["intg", 1350, BIT],
   ["resg", 926, BIT],
+  ["implied", 1019, BIT],
+  ["avr", 1308, BIT_INV],
+  ["acr", 412, BIT],
+  ["hc", 78, BIT_INV],
 
   /* transfers */
   ["pcl_abl", [438,1163,639], BIT],
@@ -136,6 +145,15 @@ const signal_list = [
   ["dl_db_sb", [863,1060], BIT],
   ["db_sb_add", [1060,549], BIT],
   ["add_s", [214,874], BIT],
+  ["adh_sb_add", [140,549], BIT],
+  ["dl_n", [863,754], BIT],
+  ["db_sb_y", [1060,325], BIT],
+  ["sb_db_n", [1060,754], BIT],
+  ["y_add", [801,549], BIT],
+  ["x_add", [1263,549], BIT],
+  ["dl_dbinv_add", [863,1068], BIT],
+  ["ac_sb_add", [1698,549], BIT],
+  ["add_ac", [129,534], BIT],
 
   /* registers */
   ["ir", [194,702,1182,1125,26,1394,895,1320], BYTE_INV],
