@@ -18,7 +18,7 @@
     $("step_button").addEventListener("click", single_step);
     $("back_button").addEventListener("click", step_back);
     $("run_button").addEventListener("click", function(){
-      simulator.postMessage(["run", []]);
+      simulator.postMessage(["run", 0]);
     });
     $("reset_button").addEventListener("click", function(){
       simulator.postMessage(["reset", []]);
@@ -203,9 +203,9 @@
         elem.style.userSelect = "none";
         elem.addEventListener("dblclick", function(){
           if (history[history.length-1][signal_id])
-            simulator.postMessage(["run", [-signal_id]]);
+            simulator.postMessage(["run", -signal_id]);
           else
-            simulator.postMessage(["run", [signal_id]]);
+            simulator.postMessage(["run", signal_id]);
         });
       }
     }

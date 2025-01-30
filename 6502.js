@@ -5,6 +5,7 @@ const BIT_INV = 1;
 const BYTE_ = 2;
 const BYTE_INV = 3;
 const signal_list = [
+  ["dummy", 0, BIT],
   ["NMI", 1297, BIT],
   ["IRQ", 103, BIT],
   ["RES", 159, BIT],
@@ -189,6 +190,16 @@ self.onmessage = function(event) {
   if (message == "step") {
     self.postMessage([message, single_step()]);
   } else if (message == "run") {
+    if ((param>0 && param<6)||(param<0 && param>-6)) {
+      /* input signal */
+      let node_id = signal_list[Math.abs(param)][1];
+      if (simulator.readNode(node_id))
+        simulator.writeNode(node_id, 0);
+      else
+        simulator.writeNode(node_id, 1);
+      self.postMessage(["step", single_step()]);
+      return;
+    }
     if (autoplay === null) {
       run(param);
     } else {
@@ -228,13 +239,10 @@ function run(bp_state_) {
   }
   let new_state = single_step();
   self.postMessage(["step", new_state]);
-  for (let i=0; i<bp_state.length; i++) {
-    let bp = bp_state[i];
-    if ((bp>=0 && new_state[bp]) || (bp<0 && !new_state[-bp])) {
-      clearInterval(autoplay);
-      autoplay = null;
-      break;
-    }
+  let bp = bp_state;
+  if (bp && ((bp>=0 && new_state[bp]) || (bp<0 && !new_state[-bp]))) {
+    clearInterval(autoplay);
+    autoplay = null;
   }
 }
 
