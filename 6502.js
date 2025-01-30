@@ -188,7 +188,7 @@ self.onmessage = function(event) {
   let message = event.data[0];
   let param = event.data[1];
   if (message == "step") {
-    self.postMessage([message, single_step()]);
+    single_step()
   } else if (message == "run") {
     if ((param>0 && param<6)||(param<0 && param>-6)) {
       /* input signal */
@@ -197,7 +197,7 @@ self.onmessage = function(event) {
         simulator.writeNode(node_id, 0);
       else
         simulator.writeNode(node_id, 1);
-      self.postMessage(["step", single_step()]);
+      single_step();
       return;
     }
     if (autoplay === null) {
@@ -225,10 +225,10 @@ function reset() {
   }
   simulator.writeNode(159, 0);
   for (let i=0; i<16; i++)
-    self.postMessage(["step", single_step()]);
+    single_step();
   simulator.writeNode(159, 1);
   for (let i=0; i<16; i++)
-    self.postMessage(["step", single_step()]);
+    single_step();
 }
 
 function run(bp_state_) {
@@ -238,7 +238,6 @@ function run(bp_state_) {
     return;
   }
   let new_state = single_step();
-  self.postMessage(["step", new_state]);
   let bp = bp_state;
   if (bp && ((bp>=0 && new_state[bp]) || (bp<0 && !new_state[-bp]))) {
     clearInterval(autoplay);
@@ -257,7 +256,7 @@ function single_step() {
     /* write operation (only on clk2) */
     memory[addr] = simulator.readDataBus();
   }
-  return signal_list.map(function(signal){
+  let new_state = signal_list.map(function(signal){
     let [name, nodes, type] = signal;
     if (type==BIT || type==BIT_INV) {
       let value = true;
@@ -278,6 +277,8 @@ function single_step() {
       return value;
     }
   });
+  self.postMessage(["step", new_state]);
+  return new_state;
 }
 
 (async function() {
