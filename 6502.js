@@ -197,7 +197,7 @@ self.onmessage = function(event) {
         simulator.writeNode(node_id, 0);
       else
         simulator.writeNode(node_id, 1);
-      single_step();
+      self.postMessage(["step", get_state()]);
       return;
     }
     if (autoplay === null) {
@@ -256,7 +256,13 @@ function single_step() {
     /* write operation (only on clk2) */
     memory[addr] = simulator.readDataBus();
   }
-  let new_state = signal_list.map(function(signal){
+  let new_state = get_state();
+  self.postMessage(["step", new_state]);
+  return new_state;
+}
+
+function get_state() {
+  return signal_list.map(function(signal){
     let [name, nodes, type] = signal;
     if (type==BIT || type==BIT_INV) {
       let value = true;
@@ -277,8 +283,6 @@ function single_step() {
       return value;
     }
   });
-  self.postMessage(["step", new_state]);
-  return new_state;
 }
 
 (async function() {
