@@ -219,6 +219,7 @@
     top: 8px; left: 0;
     z-index: 10;
   }
+  #tab_about:checked ~ #controls { position: static; }
   #diagram > div { position: relative; }
   #diagram input[type=text] {
     position: absolute;
@@ -278,13 +279,6 @@
   }
 </style>
 
-<div id=controls>
-  <input type=button value=step id=step_button><!--
-  --><input type=button value=back id=back_button disabled><!--
-  --><input type=button value=run id=run_button><!--
-  --><input type=button value=reset id=reset_button>
-</div>
-
 <input type=radio name=tab id=tab_processor checked>
 <label for=tab_processor>Processor</label>
 <input type=radio name=tab id=tab_io>
@@ -293,6 +287,13 @@
 <label for=tab_ram>RAM</label>
 <input type=radio name=tab id=tab_about>
 <label for=tab_about>About</label>
+
+<div id=controls>
+  <input type=button value=step id=step_button><!--
+  --><input type=button value=back id=back_button disabled><!--
+  --><input type=button value=run id=run_button><!--
+  --><input type=button value=reset id=reset_button>
+</div>
 
 <section id=diagram class=tab_content>
   <div>
