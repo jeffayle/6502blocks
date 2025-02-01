@@ -1,4 +1,5 @@
 <!doctype html>
+<title>Hanson's Visual6502 Block Diagram</title>
 <script type="module">
   const BIT = 0;
   const BIT_INV = 1;
@@ -254,6 +255,7 @@
   #tab_io:checked ~ #io { display: block; }
   #tab_ram:checked ~ #ram { display: block; }
   #tab_debug:checked ~ #debug { display: block; }
+  #tab_about:checked ~ #about { display: block; }
 
   tbody:nth-child(even) {
     background-color: #ccc;
@@ -289,6 +291,8 @@
 <label for=tab_io>I/O</label>
 <input type=radio name=tab id=tab_ram>
 <label for=tab_ram>RAM</label>
+<input type=radio name=tab id=tab_about>
+<label for=tab_about>About</label>
 
 <section id=diagram class=tab_content>
   <div>
@@ -339,4 +343,48 @@
     <tbody>
     </tbody>
   </table>
+</section>
+
+<section id=about class=tab_content>
+  <h1>Hanson's Visual6502 Block Diagram</h1>
+
+  <p>Hanson's Visual6502 Block Diagram runs a transistor-level simulation of the
+  MOS Technology 6502 and shows the internal on Donald Hanson's Block
+  Diagram.</p>
+
+  <h2>Attribution</h2>
+
+  <p>Block Diagram of the 6502 Microprocessor &copy; 1995
+  <a href="https://witwright.com/Hanson_pdf2.html">Donald F. Hanson</a>.
+  Conversion to SVG is the work of
+  <a href="http://forum.6502.org/viewtopic.php?t=4343">6502.org forum user
+  halkun</a></p>
+
+  <p>MOS Technology 6502 &copy; 1975 MOS Technology. Reverse engineered
+  transistor network is the work of
+  <a href="http://visual6502.org/">the Visual 6502 team</a>.
+  <a href="https://github.com/mist64/perfect6502">perfect6502</a> 
+  is used to run the simulation and is the work of Michael Steil</p>
+
+  <p>Hanson's Visual6502 Block Diagram is the work of Jeffrey Aylesworth and is
+  not affiliated with Donald Hanson or the Visual6502 team. My only original
+  contribution is to glue the visualization of the diagram to the logic of the
+  simulator.</p>
+
+  <h2>How to Use</h2>
+  <p>When the page is loaded, the 6502 Functional Test program is loaded into
+  memory and a reset sequence is performed. At this point, the processor is
+  about to read the program instruction and begin execution.</p>
+
+  <p>Press the step button to move forward by one half-cycle. Press the back
+  button to review previous processor states. Press the run button to run a
+  continous simulation. Press the run button again to stop. Press the reset
+  button to perform a reset sequence.</p>
+
+  <p>Double click on an input pin (NMI, IRQ, RES, READY, SV) to toggle its
+  state. Double click on any other signal name to run the simulation until that
+  signal changes.</p>
+
+  <p>The RAM tab shows the contents of memory. Double click on a cell to change
+  its value, or select a sample program from the drop-down menu.</p>
 </section>
