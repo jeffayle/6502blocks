@@ -107,6 +107,12 @@ const signal_list = [
   ["avr", 1308, BIT_INV],
   ["acr", 412, BIT],
   ["hc", 78, BIT_INV],
+  ["rdy", 1718, BIT],
+  ["tzero", 1357, BIT],
+  ["treset", 109, BIT],
+  ["daa0", 657, BIT],
+  ["daa1", 36, BIT_INV],
+  ["daa2", 1613, BIT_INV],
 
   /* transfers */
   ["pcl_abl", [438,1163,639], BIT],
