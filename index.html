@@ -47,6 +47,14 @@
       } else {
         history_forward.unshift(param);
       }
+    } else if (message == "write") {
+      let [addr, new_value] = param;
+      let cell = $("ram").getElementsByTagName("td")[addr];
+      if (new_value < 0x10)
+        new_value = "0" + new_value.toString(16);
+      else
+        new_value = new_value.toString(16);
+      cell.firstChild.innerHTML = new_value;
     }
   }
 
@@ -336,10 +344,10 @@
     <thead>
       <tr>
         <th></th>
-        <td>0</td> <td>1</td> <td>2</td> <td>3</td>
-        <td>4</td> <td>5</td> <td>6</td> <td>7</td>
-        <td>8</td> <td>9</td> <td>a</td> <td>b</td>
-        <td>c</td> <td>d</td> <td>e</td> <td>f</td>
+        <th>0</th> <th>1</th> <th>2</th> <th>3</th>
+        <th>4</th> <th>5</th> <th>6</th> <th>7</th>
+        <th>8</th> <th>9</th> <th>a</th> <th>b</th>
+        <th>c</th> <th>d</th> <th>e</th> <th>f</th>
       </tr>
     </thead>
     <tbody>
