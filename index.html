@@ -41,7 +41,7 @@
       if (history_forward.length == 0) {
         update_diagram(param);
         history.push(param);
-        if (history.length > 10)
+        if (history.length > 100)
           history.shift();
         $("back_button").disabled = false;
       } else {
@@ -330,6 +330,7 @@
   <select>
     <option value=zero.bin>Empty (4k)</option>
     <option value=testsuite.bin>6502 Functional Test</option>
+    <option value=uchess.bin>uchess</option>
   </select>
   <table>
     <thead>

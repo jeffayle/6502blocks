@@ -262,6 +262,8 @@ function single_step() {
   } else if (simulator.readNode(421)) {
     /* write operation (only on clk2) */
     memory[addr] = simulator.readDataBus();
+    if (addr == 0xff)
+      console.log(simulator.readDataBus())
   }
   let new_state = get_state();
   self.postMessage(["step", new_state]);
