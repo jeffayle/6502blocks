@@ -1,4 +1,4 @@
-CFLAGS=--target=wasm32 -O2 -nostdlib -fno-builtin-memset
+CFLAGS=--target=wasm32 -g -nostdlib -fno-builtin-memset
 LDFLAGS=--target=wasm32 -nostdlib \
     -Wl,--no-entry \
     -Wl,--export=initAndResetChip \

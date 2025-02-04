@@ -707,6 +707,6 @@ readNodes(state_t *state, int count, nodenum_t *nodelist)
 void
 writeNodes(state_t *state, int count, nodenum_t *nodelist, int v)
 {
-	for (int i = 0; i < 8; i++, v >>= 1)
+	for (int i = 0; i < count; i++, v >>= 1)
 	setNode(state, nodelist[i], v & 1);
 }

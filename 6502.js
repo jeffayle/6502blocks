@@ -264,7 +264,7 @@ function single_step() {
     let new_value = simulator.readDataBus();
     memory[addr] = new_value;
     if (addr == 0xff)
-      console.log("out: " + new_value.toString(16))
+      console.log("out: " + String.fromCharCode(new_value.toString(16)));
     else
       self.postMessage(["write", [addr, new_value]])
   }
