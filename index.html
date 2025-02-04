@@ -55,6 +55,9 @@
       else
         new_value = new_value.toString(16);
       cell.firstChild.innerHTML = new_value;
+    } else if (message == "out") {
+      if (param != "\r")
+        $("io").getElementsByTagName("pre")[0].innerText += param;
     }
   }
 
@@ -284,6 +287,10 @@
   }
   #ram table td {
     text-align: center;
+  }
+
+  pre {
+    line-height: 1.2;
   }
 </style>
 

@@ -262,11 +262,12 @@ function single_step() {
   } else if (simulator.readNode(421)) {
     /* write operation (only on clk2) */
     let new_value = simulator.readDataBus();
-    memory[addr] = new_value;
-    if (addr == 0xff)
-      console.log("out: " + String.fromCharCode(new_value.toString(16)));
-    else
+    if (addr == 0xff) {
+      self.postMessage(["out", String.fromCharCode(new_value)]);
+    } else {
+      memory[addr] = new_value;
       self.postMessage(["write", [addr, new_value]])
+    }
   }
   let new_state = get_state();
   self.postMessage(["step", new_state]);
