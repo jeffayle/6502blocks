@@ -69,7 +69,10 @@
         $("io").getElementsByTagName("pre")[0].innerText += param;
     } else if (message == "in") {
       let elem = $("io").getElementsByTagName("input")[0];
-      elem.value = elem.value.slice(1);
+      if (elem.value.length > 0)
+        elem.value = elem.value.slice(1);
+      if (elem.value.length > 0)
+        simulator.postMessage(["in", elem.value[0]]);
     }
   }
 
