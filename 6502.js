@@ -262,9 +262,8 @@ function single_step() {
   if (simulator.readNode(1156 /*RW*/)) {
     /* read operation */
     if (addr == 0xff) {
-      if (simulator.readNode(421 /*clk2*/)) {
-        console.log(queued_input);
-        simulator.writeDataBus(queued_input || 0);
+      if (simulator.readNode(1163 /*clk1*/)) {
+        simulator.writeDataBus((queued_input||"\0").charCodeAt(0));
         if (queued_input) {
           self.postMessage(["out", queued_input]);
           queued_input = null;
