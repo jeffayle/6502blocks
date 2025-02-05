@@ -265,7 +265,7 @@ function single_step() {
       if (simulator.readNode(1163 /*clk1*/)) {
         simulator.writeDataBus((queued_input||"\0").charCodeAt(0));
         if (queued_input) {
-          self.postMessage(["out", queued_input]);
+          //self.postMessage(["out", queued_input]);
           queued_input = null;
           self.postMessage(["in", null]);
         }
