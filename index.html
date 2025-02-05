@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset=utf-8>
-<title>Hanson's Visual6502 Block Diagram</title>
+<title>Animated 6502 Block Diagram</title>
 <script type="module">
   const BIT = 0;
   const BIT_INV = 1;
@@ -363,7 +363,7 @@
   <select>
     <option value=zero.bin>Empty (4k)</option>
     <option value=testsuite.bin>6502 Functional Test</option>
-    <option value=ehbasic.bin>EhBasic</option>
+    <option value=ehbasic.bin selected>EhBasic</option>
   </select>
   <table>
     <thead>
@@ -397,17 +397,26 @@
 
   <p>MOS Technology 6502 &copy; 1975 MOS Technology. Reverse engineered
   transistor network is the work of
-  <a href="http://visual6502.org/">the Visual 6502 team</a>.
-  <a href="https://github.com/mist64/perfect6502">perfect6502</a> 
-  is used to run the simulation and is the work of Michael Steil</p>
+  <a href="http://visual6502.org/">Brian Silverman and Barry Silverman</a>.
+  perfect6502 is used to run the simulation and is the work of 
+  <a href="https://github.com/mist64/perfect6502">Michael Steil</a>, and is
+  distributed under the terms of
+  <a href="https://github.com/mist64/perfect6502/blob/master/LICENSE">the MIT
+  License</a></p>
 
-  <p>Hanson's Visual6502 Block Diagram is the work of Jeffrey Aylesworth and is
-  not affiliated with Donald Hanson or the Visual6502 team. My only original
-  contribution is to glue the visualization of the diagram to the logic of the
-  simulator.</p>
+  <p>Animated 6502 Block Diagram is the work of Jeffrey Aylesworth and is
+  not affiliated with Donald Hanson or the Visual6502 team. Original
+  contributions are released under the terms of the MIT License. This applies
+  only to the files <em>index.html</em> and <em>6502.js</em></p>
+
+  <p>6502 Functional Test is the work of
+  <a href="https://github.com/Klaus2m5/6502_65C02_functional_tests">Klaus
+  Dormann</a> and is distributed under the terms of
+  <a href="https://github.com/Klaus2m5/6502_65C02_functional_tests/blob/master/license.txt"
+  >the Gnu General Public License v3.0</a></p>
 
   <h2>How to Use</h2>
-  <p>When the page is loaded, the 6502 Functional Test program is loaded into
+  <p>When the page is loaded, Enchanced Basic is loaded into
   memory and a reset sequence is performed. At this point, the processor is
   about to read the program instruction and begin execution.</p>
 
