@@ -25,7 +25,7 @@
     $("reset_button").addEventListener("click", function(){
       simulator.postMessage(["reset", []]);
     });
-    $("io").getElementsByTagName("input")[0].addEventListener("change",
+    $("io").getElementsByTagName("textarea")[0].addEventListener("change",
         function() {
           if (this.value.length > 0) {
             simulator.postMessage(["in", this.value[0]]);
@@ -68,7 +68,7 @@
       if (param != "\r")
         $("io").getElementsByTagName("pre")[0].innerText += param;
     } else if (message == "in") {
-      let elem = $("io").getElementsByTagName("input")[0];
+      let elem = $("io").getElementsByTagName("textarea")[0];
       if (elem.value.length > 0)
         elem.value = elem.value.slice(1);
       if (elem.value.length > 0)
@@ -355,7 +355,7 @@
 
 <section id=io class=tab_content>
   <pre></pre>
-  <input type=text id=text_input placeholder="keyboard input">
+  <textarea id=text_input placeholder="keyboard input"></textarea>
 </section>
 
 <section id=ram class=tab_content>
@@ -364,6 +364,7 @@
     <option value=zero.bin>Empty (4k)</option>
     <option value=testsuite.bin>6502 Functional Test</option>
     <option value=uchess.bin>uchess</option>
+    <option value=ehbasic.bin>EhBasic</option>
   </select>
   <table>
     <thead>
