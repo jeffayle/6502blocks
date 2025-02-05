@@ -186,6 +186,7 @@ const signal_list = [
 var simulator = null;
 var autoplay = null;
 var bp_state = null;
+var queued_input = null;
 let memory;
 let memory_mask = 0xffff;
 
@@ -222,6 +223,8 @@ self.onmessage = function(event) {
   } else if (message == "write") {
     let [addr, new_value] = param;
     memory[addr] = new_value;
+  } else if (message == "in") {
+    queued_input = param;
   }
 }
 
@@ -256,10 +259,22 @@ function single_step() {
   simulator.step();
   let addr = simulator.readAddressBus() & memory_mask;
   /* handle memory */
-  if (simulator.readNode(1156)) {
+  if (simulator.readNode(1156 /*RW*/)) {
     /* read operation */
-    simulator.writeDataBus(memory[addr]);
-  } else if (simulator.readNode(421)) {
+    if (addr == 0xff) {
+      if (simulator.readNode(421 /*clk2*/)) {
+        console.log(queued_input);
+        simulator.writeDataBus(queued_input || 0);
+        if (queued_input) {
+          self.postMessage(["out", queued_input]);
+          queued_input = null;
+          self.postMessage(["in", null]);
+        }
+      }
+    } else {
+      simulator.writeDataBus(memory[addr]);
+    }
+  } else if (simulator.readNode(421 /*clk2*/)) {
     /* write operation (only on clk2) */
     let new_value = simulator.readDataBus();
     if (addr == 0xff) {

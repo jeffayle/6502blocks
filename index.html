@@ -1,4 +1,5 @@
 <!doctype html>
+<meta charset=utf-8>
 <title>Hanson's Visual6502 Block Diagram</title>
 <script type="module">
   const BIT = 0;
@@ -24,6 +25,14 @@
     $("reset_button").addEventListener("click", function(){
       simulator.postMessage(["reset", []]);
     });
+    $("io").getElementsByTagName("input")[0].addEventListener("change",
+        function() {
+          if (this.value.length > 0) {
+            simulator.postMessage(["in", this.value[0]]);
+          } else {
+            simulator.postMessage(["in", null]);
+          }
+        });
     let ram_select = $("ram").getElementsByTagName("select")[0];
     ram_select.addEventListener("change", function() {
       load_ram(this.value);
@@ -58,6 +67,9 @@
     } else if (message == "out") {
       if (param != "\r")
         $("io").getElementsByTagName("pre")[0].innerText += param;
+    } else if (message == "in") {
+      let elem = $("io").getElementsByTagName("input")[0];
+      elem.value = elem.value.slice(1);
     }
   }
 
@@ -292,6 +304,9 @@
   pre {
     line-height: 1.2;
   }
+  pre::after {
+    content: "∎";
+  }
 </style>
 
 <input type=radio name=tab id=tab_processor checked>
@@ -337,7 +352,7 @@
 
 <section id=io class=tab_content>
   <pre></pre>
-  <input type=text placeholder="keyboard input">
+  <input type=text id=text_input placeholder="keyboard input">
 </section>
 
 <section id=ram class=tab_content>
