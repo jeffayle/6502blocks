@@ -318,9 +318,10 @@ function get_state() {
 
 (async function() {
   /* load wasm */
-  const { instance } = await WebAssembly.instantiateStreaming(
-    fetch("./6502.wasm")
-  );
+  const response = await fetch("./6502.bin");
+  const buffer = await response.arrayBuffer();
+  const module = await WebAssembly.compile(buffer);
+  const instance = await WebAssembly.instantiate(module);
   simulator = instance.exports;
   simulator.initAndResetChip();
 })();

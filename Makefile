@@ -11,5 +11,5 @@ LDFLAGS=--target=wasm32 -nostdlib \
 	-Wl,--export=writeDataBus
 CC=clang
 
-6502.wasm: netlist_sim.o perfect6502.o libc.o
-	$(CC) $(LDFLAGS) -o 6502.wasm $^
+6502.bin: netlist_sim.o perfect6502.o libc.o
+	$(CC) $(LDFLAGS) -o 6502.bin $^
