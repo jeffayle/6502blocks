@@ -161,6 +161,10 @@ const signal_list = [
   ["dl_dbinv_add", [863,1068], BIT],
   ["ac_sb_add", [1698,549], BIT],
   ["add_ac", [129,534], BIT],
+  ["sb_abh", [140,1163,821], BIT],
+  ["add_adh", [129,140], BIT],
+  ["pch_abh", [1235,1163,821], BIT],
+  ["x_s", [1263,874], BIT],
 
   /* registers */
   ["ir", [194,702,1182,1125,26,1394,895,1320], BYTE_INV],

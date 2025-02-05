@@ -20,9 +20,11 @@
     $("step_button").addEventListener("click", single_step);
     $("back_button").addEventListener("click", step_back);
     $("run_button").addEventListener("click", function(){
+      fast_forward();
       simulator.postMessage(["run", 0]);
     });
     $("reset_button").addEventListener("click", function(){
+      fast_forward();
       simulator.postMessage(["reset", []]);
     });
     $("io").getElementsByTagName("textarea")[0].addEventListener("change",
@@ -97,6 +99,11 @@
     if (history.length == 0)
       $("back_button").disabled = true;
     update_diagram(history[history.length-1]);
+  }
+
+  function fast_forward() {
+    while (history_forward.length > 0)
+      history.push(history_forward.pop());
   }
 
   function update_diagram(state) {

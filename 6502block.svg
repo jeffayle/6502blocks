@@ -3498,16 +3498,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="8.1956892"
-     inkscape:cx="464.45148"
-     inkscape:cy="897.11796"
+     inkscape:zoom="4.0130908"
+     inkscape:cx="573.37352"
+     inkscape:cy="694.10341"
      inkscape:document-units="px"
-     inkscape:current-layer="g52456"
+     inkscape:current-layer="layer5"
      showgrid="false"
      inkscape:window-width="2554"
-     inkscape:window-height="1375"
+     inkscape:window-height="1402"
      inkscape:window-x="0"
-     inkscape:window-y="30"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:snap-grids="true"
      inkscape:snap-bbox="true"
@@ -4387,6 +4387,18 @@
        id="path289713"
        inkscape:label="n01_abh"
        class="n01_abh overlay" />
+    <path
+       style="display:none;fill:#033302;stroke:#23c336;stroke-width:3.74882;stroke-dasharray:none;stroke-opacity:1"
+       d="m 596.20721,365.04114 v -28.9443"
+       id="path6314"
+       inkscape:label="sb_abh"
+       class="sb_abh overlay" />
+    <path
+       style="display:none;fill:#033302;stroke:#23c336;stroke-width:3.74882;stroke-dasharray:none;stroke-opacity:1"
+       d="m 596.20721,365.04114 v -28.9443"
+       id="path13848"
+       inkscape:label="pch_abh"
+       class="pch_abh overlay" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -4531,6 +4543,24 @@
        id="path445325"
        class="sb_s overlay"
        inkscape:label="sb_s" />
+    <path
+       style="display:none;fill:#033302;stroke:#23c336;stroke-width:3.74882;stroke-dasharray:none;stroke-opacity:1"
+       d="M 596.20721,657.21405 V 440.60677"
+       id="path9949"
+       inkscape:label="add_adh"
+       class="add_adh overlay" />
+    <path
+       style="display:none;fill:#033302;stroke:#23c336;stroke-width:3.74882;stroke-dasharray:none;stroke-opacity:1"
+       d="M 596.20721,559.07771 V 440.60677"
+       id="path11898"
+       inkscape:label="db_s"
+       class="db_s overlay" />
+    <path
+       style="display:none;fill:#033302;stroke:#23c336;stroke-width:3.74882;stroke-dasharray:none;stroke-opacity:1"
+       d="M 596.20721,744.73014 V 559.07771"
+       id="path15799"
+       inkscape:label="x_s"
+       class="x_s overlay" />
   </g>
   <g
      inkscape:label="6502"
