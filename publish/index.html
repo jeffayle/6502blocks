@@ -1,0 +1,445 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Animated 6502 Block Diagram</title>
+<script type="module">
+  const BIT = 0;
+  const BIT_INV = 1;
+  const BYTE_ = 2;
+  const BYTE_INV = 3;
+
+  const simulator = new Worker("./6502.js");
+  var svg_doc = null;
+  var signal_list = [];
+  var history = [];
+  var history_forward = [];
+
+  window.addEventListener("DOMContentLoaded", function() {
+    $("diagram_svg").addEventListener("load", function(){
+      svg_doc = this.contentDocument;
+    });
+    $("step_button").addEventListener("click", single_step);
+    $("back_button").addEventListener("click", step_back);
+    $("run_button").addEventListener("click", function(){
+      fast_forward();
+      simulator.postMessage(["run", 0]);
+    });
+    $("reset_button").addEventListener("click", function(){
+      fast_forward();
+      simulator.postMessage(["reset", []]);
+    });
+    $("io").getElementsByTagName("textarea")[0].addEventListener("change",
+        function() {
+          if (this.value.length > 0) {
+            simulator.postMessage(["in", this.value[0]]);
+          } else {
+            simulator.postMessage(["in", null]);
+          }
+        });
+    let ram_select = $("ram").getElementsByTagName("select")[0];
+    ram_select.addEventListener("change", function() {
+      load_ram(this.value);
+    });
+    load_ram(ram_select.value);
+    simulator.onmessage = simulator_onmessage;
+  });
+
+  function simulator_onmessage(event) {
+    let [message,param] = event.data;
+    if (message == "init") {
+      signal_list = param;
+      attach_breakpoint_interface_events();
+    } else if (message == "step") {
+      if (history_forward.length == 0) {
+        update_diagram(param);
+        history.push(param);
+        if (history.length > 100)
+          history.shift();
+        $("back_button").disabled = false;
+      } else {
+        history_forward.unshift(param);
+      }
+    } else if (message == "write") {
+      let [addr, new_value] = param;
+      let cell = $("ram").getElementsByTagName("td")[addr];
+      if (new_value < 0x10)
+        new_value = "0" + new_value.toString(16);
+      else
+        new_value = new_value.toString(16);
+      cell.firstChild.innerHTML = new_value;
+    } else if (message == "out") {
+      if (param != "\r")
+        $("io").getElementsByTagName("pre")[0].innerText += param;
+    } else if (message == "in") {
+      let elem = $("io").getElementsByTagName("textarea")[0];
+      if (elem.value.length > 0)
+        elem.value = elem.value.slice(1);
+      if (elem.value.length > 0)
+        simulator.postMessage(["in", elem.value[0]]);
+    }
+  }
+
+  function $(x) {
+    return document.getElementById(x);
+  }
+
+  function single_step() {
+    if (history_forward.length > 0) {
+      let state = history_forward.pop();
+      history.push(state);
+      update_diagram(state);
+    } else {
+      simulator.postMessage(["step", null]);
+    }
+  }
+
+  function step_back() {
+    if (history.length == 0)
+      return;
+    history_forward.push(history.pop());
+    if (history.length == 0)
+      $("back_button").disabled = true;
+    update_diagram(history[history.length-1]);
+  }
+
+  function fast_forward() {
+    while (history_forward.length > 0)
+      history.push(history_forward.pop());
+  }
+
+  function update_diagram(state) {
+    function set_bit(cls, value) {
+      let matches = svg_doc.getElementsByClassName(cls);
+      for (let i=0; i<matches.length; i++) {
+        if (matches[i].classList.contains("overlay")) {
+          matches[i].style.display = value ? "inline":"none";
+        } else {
+          let col = value ? 'red':'grey';
+          matches[i].style.color = col;
+          matches[i].style.solidColor = col;
+          matches[i].style.fill = col;
+          matches[i].stroke = col;
+        }
+      }
+    }
+    function set_register(cls, value) {
+      let matches = $("diagram").getElementsByClassName(cls);
+      value = value.toString(16);
+      if (value.length < 2)
+        value = "0" + value;
+      for (let i=0; i<matches.length; i++)
+        matches[i].value = value;
+    }
+    for (let i=0; i<signal_list.length; i++) {
+      let [name,type] = signal_list[i];
+      if (type==BIT || type==BIT_INV)
+        set_bit(name, state[i]);
+      else if (type==BYTE_ || type==BYTE_INV)
+        set_register(name, state[i]);
+    }
+  }
+
+  async function load_ram(fname) {
+    /* remove old ram table */
+    let table = $("ram").getElementsByTagName("table")[0];
+    let bodies = table.getElementsByTagName("tbody");
+    while (bodies.length > 0)
+      table.removeChild(bodies[0]);
+    if (bodies.length > 2)
+      return
+    /* fetch new image */
+    const memory_response = await fetch(fname);
+    const new_memory = new Uint8Array(await memory_response.arrayBuffer());
+    simulator.postMessage(["init", new_memory]);
+    simulator.postMessage(["reset", []]);
+    /* RAM table */
+    let table_body = document.createElement("tbody");
+    table.appendChild(table_body);
+    let table_row = null;
+    for (let i=0; i<=new_memory.length; i++) {
+      if (i % 16 == 0) {
+        if (table_row)
+          table_body.appendChild(table_row);
+        table_row = document.createElement("tr");
+        let header = document.createElement("th");
+        let fmt = (i/16).toString(16) + "x";
+        if (i < 0x100)
+          null; /* no padding on zero page address */
+        else if (i < 0x1000)
+          fmt = "0" + fmt;
+        header.innerHTML = fmt;
+        table_row.appendChild(header);
+      }
+      if (i % 256 == 0) {
+        table.appendChild(table_body);
+        table_body = document.createElement("tbody");
+      }
+      if (i==new_memory.length) break; /* ensure final row is output */
+      let cell = document.createElement("td");
+      let container = document.createElement("div");
+      cell.appendChild(container);
+      let value = new_memory[i].toString(16);
+      if (new_memory[i] < 0x10)
+        value = "0" + value;
+      container.innerHTML = value;
+      table_row.appendChild(cell);
+      /* when cell is double clicked, turn div into input */
+      cell.addEventListener("dblclick", function(event) {
+        let old_value = this.firstChild.innerHTML;
+        this.removeChild(this.firstChild);
+        let input = document.createElement("input");
+        input.type = "text";
+        input.value = old_value;
+        this.appendChild(input);
+        input.focus();
+        /* turn back into a div */
+        input.addEventListener("focusout", function() {
+          let new_value = parseInt(this.value,16);
+          if (isNaN(new_value) || new_value<0 || new_value>255)
+            new_value = old_value;
+          else
+            simulator.postMessage(["write", [i, new_value]]);
+          if (new_value < 0x10)
+            new_value = "0" + new_value.toString(16);
+          else
+            new_value = new_value.toString(16);
+          let cell = this.parentNode;
+          let new_div = document.createElement("div");
+          new_div.innerHTML = new_value;
+          cell.removeChild(this);
+          cell.appendChild(new_div);
+        });
+      });
+    }
+  }
+
+  function signal_id(name) {
+    for (let i=0; i<signal_list.length; i++)
+      if (signal_list[i][0] == name)
+        return i;
+    return null;
+  }
+
+  function attach_breakpoint_interface_events() {
+    /* if the svg document is not yet loaded then schedule ourself
+    when it has */
+    if (svg_doc === null) {
+      $("diagram_svg").addEventListener("load",
+          attach_breakpoint_interface_events);
+      return;
+    }
+    for (let sid=0; sid<signal_list.length; sid++) {
+      let signal_id = sid;
+      let [signal_name, signal_type] = signal_list[signal_id];
+      let elements = svg_doc.getElementsByClassName(signal_name);
+      for (let elem_id=0; elem_id<elements.length; elem_id++) {
+        let elem = elements[elem_id];
+        elem.style.cursor = "pointer";
+        elem.style.userSelect = "none";
+        elem.addEventListener("dblclick", function(){
+          if (history[history.length-1][signal_id])
+            simulator.postMessage(["run", -signal_id]);
+          else
+            simulator.postMessage(["run", signal_id]);
+        });
+      }
+    }
+  }
+</script>
+
+<style type="text/css">
+  #controls {
+    position: sticky;
+    top: 8px; left: 0;
+    z-index: 10;
+  }
+  #tab_about:checked ~ #controls { position: static; }
+  #diagram > div { position: relative; }
+  #diagram input[type=text] {
+    position: absolute;
+    font-size: 16px;
+    width: 32px;
+    font-family: monospace;
+    background-color: #ff9;
+    text-align: center;
+  }
+  #diagram input[type=text].small {
+    font-size: 12px;
+    width: 24px;
+  }
+  #diagram input[type=text].tiny {
+    font-size: 8px;
+    width: 16px;
+  }
+
+  input[name=tab] + label {
+    color: blue;
+    text-decoration: underline;
+    margin-right: 0.25em;
+    cursor: pointer;
+  }
+  input[name=tab]:checked + label {
+    color: black;
+    text-decoration: none;
+    cursor: default;
+  }
+
+  .tab_content { display: none; }
+  input[name=tab] { display: none; }
+  #tab_processor:checked ~ #diagram { display: block; }
+  #tab_io:checked ~ #io { display: block; }
+  #tab_ram:checked ~ #ram { display: block; }
+  #tab_debug:checked ~ #debug { display: block; }
+  #tab_about:checked ~ #about { display: block; }
+
+  tbody:nth-child(even) {
+    background-color: #ccc;
+  }
+
+  #ram table {
+    font-family: monospace;
+  }
+  #ram table div {
+    width: 3em;
+  }
+  #ram table input {
+    width: 3em;
+  }
+  #ram table th {
+    text-align: right;
+  }
+  #ram table td {
+    text-align: center;
+  }
+
+  pre {
+    line-height: 1.2;
+  }
+  pre::after {
+    content: "∎";
+  }
+</style>
+
+<input type=radio name=tab id=tab_processor checked>
+<label for=tab_processor>Processor</label>
+<input type=radio name=tab id=tab_io>
+<label for=tab_io>I/O</label>
+<input type=radio name=tab id=tab_ram>
+<label for=tab_ram>RAM</label>
+<input type=radio name=tab id=tab_about>
+<label for=tab_about>About</label>
+
+<div id=controls>
+  <input type=button value=step id=step_button><!--
+  --><input type=button value=back id=back_button disabled><!--
+  --><input type=button value=run id=run_button><!--
+  --><input type=button value=reset id=reset_button>
+</div>
+
+<section id=diagram class=tab_content>
+  <div>
+  <object data="6502block.svg" type="image/svg+xml" id=diagram_svg></object>
+  <input type=text readonly class=ir style="left: 55px; top: 374px;">
+  <input type=text readonly class=DB style="left: 247px; top: 70px;">
+  <input type=text readonly class="pd tiny" style="left: 181px; top: 164px;">
+  <input type=text readonly class="dor small" style="left: 250px; top: 279px;">
+  <input type=text readonly class=pd style="left: 332px; top: 150px;">
+  <input type=text readonly class="pcls small" style="left: 403px; top: 224px;">
+  <input type=text readonly class=pcl style="left: 403px; top: 339px;">
+  <input type=text readonly class=pchs style="left: 547px; top: 222px;">
+  <input type=text readonly class=pch style="left: 550px; top: 377px;">
+  <input type=text readonly class=abh style="left: 679px; top: 367px;">
+  <input type=text readonly class=abl style="left: 677px; top: 636px;">
+  <input type=text readonly class=s style="left: 540px; top: 533px;">
+  <input type=text readonly class="s_sel tiny" style="left: 537px; top: 588px;">
+  <input type=text readonly class="ai small" style="left: 425px; top: 800px;">
+  <input type=text readonly class="bi small" style="left: 425px; top: 589px;">
+  <input type=text readonly class="add small" style="left: 541px; top: 715px;">
+  <input type=text readonly class=x style="left: 680px; top: 781px;">
+  <input type=text readonly class=y style="left: 680px; top: 940px;">
+  <input type=text readonly class=ac style="left: 459px; top: 981px;">
+  </div>
+</section>
+
+<section id=io class=tab_content>
+  <pre></pre>
+  <textarea id=text_input placeholder="keyboard input"></textarea>
+</section>
+
+<section id=ram class=tab_content>
+  Load memory contents from file:
+  <select>
+    <option value=zero.bin>Empty (4k)</option>
+    <option value=testsuite.bin>6502 Functional Test</option>
+    <option value=ehbasic.bin selected>EhBasic</option>
+  </select>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>0</th> <th>1</th> <th>2</th> <th>3</th>
+        <th>4</th> <th>5</th> <th>6</th> <th>7</th>
+        <th>8</th> <th>9</th> <th>a</th> <th>b</th>
+        <th>c</th> <th>d</th> <th>e</th> <th>f</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</section>
+
+<section id=about class=tab_content>
+  <h1>Animated 6502 Block Diagram</h1>
+
+  <p>Animated 6502 Block Diagram runs a transistor-level simulation of the
+  MOS Technology 6502 and shows the internal state on Donald Hanson's Block
+  Diagram.</p>
+
+  <h2>Attribution</h2>
+
+  <p>Block Diagram of the 6502 Microprocessor &copy; 1995
+  <a href="https://witwright.com/Hanson_pdf2.html">Donald F. Hanson</a>.
+  Conversion to SVG is the work of
+  <a href="http://forum.6502.org/viewtopic.php?t=4343">6502.org forum user
+  halkun</a></p>
+
+  <p>MOS Technology 6502 &copy; 1975 MOS Technology. Reverse engineered
+  transistor network is the work of
+  <a href="http://visual6502.org/">Brian Silverman and Barry Silverman</a>.
+  perfect6502 is used to run the simulation and is the work of 
+  <a href="https://github.com/mist64/perfect6502">Michael Steil</a>, and is
+  distributed under the terms of
+  <a href="https://github.com/mist64/perfect6502/blob/master/LICENSE">the MIT
+  License</a></p>
+
+  <p>Animated 6502 Block Diagram is the work of Jeffrey Aylesworth and is
+  not affiliated with Donald Hanson or the Visual6502 team. Original
+  contributions are released under the terms of the MIT License. This applies
+  only to the files <em>index.html</em> and <em>6502.js</em></p>
+
+  <p>6502 Functional Test is the work of
+  <a href="https://github.com/Klaus2m5/6502_65C02_functional_tests">Klaus
+  Dormann</a> and is distributed under the terms of
+  <a href="https://github.com/Klaus2m5/6502_65C02_functional_tests/blob/master/license.txt"
+  >the Gnu General Public License v3.0</a></p>
+
+  <p>EhBasic is the work of
+  <a href="https://github.com/Klaus2m5/6502_EhBASIC_V2.22">Lee Davison</a> and
+  is distributed for non-commercial use.</p>
+
+  <h2>How to Use</h2>
+  <p>When the page is loaded, Enchanced Basic is loaded into
+  memory and a reset sequence is performed. At this point, the processor is
+  about to read the program instruction and begin execution.</p>
+
+  <p>Press the step button to move forward by one half-cycle. Press the back
+  button to review previous processor states. Press the run button to run a
+  continous simulation. Press the run button again to stop. Press the reset
+  button to perform a reset sequence.</p>
+
+  <p>Double click on an input pin (NMI, IRQ, RES, READY, SV) to toggle its
+  state. Double click on any other signal name to run the simulation until that
+  signal changes.</p>
+
+  <p>The RAM tab shows the contents of memory. Double click on a cell to change
+  its value, or select a sample program from the drop-down menu.</p>
+</section>
